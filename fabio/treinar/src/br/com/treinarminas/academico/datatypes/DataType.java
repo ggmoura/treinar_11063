@@ -4,7 +4,7 @@ package br.com.treinarminas.academico.datatypes;
 
 //ctrl+f  = arruma o trecho de codigo
 
-//ctrl+i  = identa o trecho de codigo
+//ctrl+i  = identa o trecho de codigo jarbas
 
 public class DataType {
 	public static void main(String[] args) {
