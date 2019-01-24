@@ -1,4 +1,4 @@
-package br.com.mbreno;
+package br.com.mbreno.banco;
 
 public class Pessoa {
 	
