@@ -14,7 +14,7 @@ public class ComandoSwitch {
 			break;
 		case 3:
 			System.out.println("três");
-			break;
+			break;//
 
 		default:
 			System.out.println("Numero invalido");
