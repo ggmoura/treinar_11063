@@ -1,0 +1,30 @@
+
+
+//classes Wrapper - Sao classes que ja estao criados no java desde o java 5 que ja se instanciam sozinhos e sao para representar os tipos primitivos e dar funciona
+//lidade a eles
+
+- pull de numeros inteiros= 
+para cada tipo de dado primitivo existe uma classe wrapper;
+
+== 
+padrao de projetos mvc 
+
+model - tudo que tem na regra de negocio tipo na fabrica de mouse seria: registro de maquina, funconario,setores etc..
+view - maneira que o ususario interage com o sistema
+controler - camada que esta entre o model e o view controlando a forma que a camada view recebe as informacoes contidas no model.s
+
+para projetos de banco 
+
+
+camada modelo - conta, tipo de contao, agencia,  
+
+
+
+
+
+
+singleton - padrao de projeto para que nao seja possivel existir varias instanciacoes do mesmo objeto no projeto.
+
+instancia
+
+
