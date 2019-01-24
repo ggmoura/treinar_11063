@@ -14,7 +14,7 @@ public class ComandoIf {
 				}
 			}
 			System.out.println("Fim do programa!");
-			System.out.println("Fim do programa12!");
+			System.out.println("Fim do programa1!");
 			
 		}
 	}
