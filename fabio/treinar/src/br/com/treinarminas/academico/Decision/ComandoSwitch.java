@@ -6,7 +6,8 @@ public class ComandoSwitch {
 		switch (numero) {
 		case 1:
 			System.out.println("Um");
-			break;// Se nao tiver o break o compilador vai procurar um break se nao achar ele executa tudo
+			break;// Se nao tiver o break o compilador vai procurar um break se nao achar ele
+					// executa tudo
 					// serve para ser usado em um atualizador de banco de dados
 		case 2:
 			System.out.println("dois");
