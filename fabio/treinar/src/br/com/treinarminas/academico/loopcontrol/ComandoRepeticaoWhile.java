@@ -18,5 +18,6 @@ public class ComandoRepeticaoWhile {
 			x++;
 		}
 		System.out.println("Fim");
+		System.out.println("Fim2");
 	}
 }
