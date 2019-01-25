@@ -47,8 +47,8 @@ public class Principal {
 			m.clicarBtnEsquerdo();
 		}
 		
-		System.out.println("Quantidade de cliques no botao direito - >" +m.clkBtnBireito);
-		System.out.println("Quantidade de cliques no botao esquerdo - >" +m.clkBtnEsquerdo);
+		System.out.println("Quantidade de cliques no botao direito - >" +m.getClkBtnBireito());
+		System.out.println("Quantidade de cliques no botao esquerdo - >" +m.getClkBtnEsquerdo());
 		
 	}
 

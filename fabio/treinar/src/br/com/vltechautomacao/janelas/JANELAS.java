@@ -73,7 +73,7 @@ public class JANELAS {
 					m.clicarBtnEsquerdo();
 				}
 				
-				JOptionPane.showMessageDialog(btnNewButton,"Botao direito imprimiu: "+m.retornaQtdclickBtndireito()+" e botao esquerdo clicou: "+m.retornaQtdclickBtnEsquerdo());
+				JOptionPane.showMessageDialog(btnNewButton,"Botao direito imprimiu: "+m.retornaQtdclickBtndireito()+"\n e botao esquerdo clicou: "+m.retornaQtdclickBtnEsquerdo());
 				 
 			}
 		});
