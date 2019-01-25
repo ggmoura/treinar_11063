@@ -83,6 +83,6 @@ public class JANELAS {
 		JLabel lblOi = new JLabel("oi");
 		lblOi.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblOi.setBounds(10, 12, 303, 14);
-		frame.getContentPane().add(lblOi);
+		frame.getContentPane().add(lblOi);//1
 	}
 }
