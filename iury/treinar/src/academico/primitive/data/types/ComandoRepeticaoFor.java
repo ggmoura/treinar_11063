@@ -3,7 +3,7 @@ package academico.primitive.data.types;
 public class ComandoRepeticaoFor {
 	public static void main(String[] args) {
 
-		int x = 100;
+		int x = 30;
 
 		do {
 			System.out.println("valor de  X : " + x + (x % 2 == 0 ? "Par" : "Impar"));
