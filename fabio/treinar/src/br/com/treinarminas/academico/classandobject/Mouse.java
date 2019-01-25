@@ -12,19 +12,19 @@ public class Mouse {
 	// Regra clicarBtnDireito retrorna inteiro 1;
 	// Regra clicarBtnEsquedo retrorna inteiro 2;
 	// Regra retorna quantidade clcks botao direito 
-	// Regra retorna quantidade clcks botao esquerdo 
+	// Regra retorna quantidade clcks botao esquerdo c
 
-	void clicarBtnDireito(){
+	public void clicarBtnDireito(){
 		clkBtnBireito +=1;
 	}
-	void clicarBtnEsquerdo(){
+	public void clicarBtnEsquerdo(){
 		clkBtnEsquerdo +=1;
 	}
-	int retornaQtdclickBtndireito(){
+	public int retornaQtdclickBtndireito(){
 		return clkBtnBireito;
 	}
 	
-	int retornaQtdclickBtnEsquerdo(){
+	public int retornaQtdclickBtnEsquerdo(){
 		return clkBtnEsquerdo;
 	}
 	
