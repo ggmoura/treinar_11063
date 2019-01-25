@@ -14,6 +14,10 @@ public class Conta {
 		this.saldo += valor;
 	}
 	
+	public Double consultarSaldo() {
+		return this.saldo;
+	}
+	
 	public Integer getNumero() {
 		return numero;
 	}

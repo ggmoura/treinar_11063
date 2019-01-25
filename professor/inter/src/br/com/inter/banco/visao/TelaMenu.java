@@ -23,6 +23,9 @@ public class TelaMenu {
 			case 1:
 				criarConta();
 				break;
+			case 2:
+				consultarSaldo();
+				break;
 
 			default:
 				System.out.println("Opção inválida!");
@@ -34,6 +37,10 @@ public class TelaMenu {
 		leitor.close();
 	}
 	
+	private void consultarSaldo() {
+		System.out.println("Seu saldo atual é: " + controle.recuperarSaldo());
+	}
+
 	private void criarConta() {
 		System.out.print("Informe o nome do Cliente: ");
 		String nomeCliente = leitor.nextLine();
@@ -48,6 +55,7 @@ public class TelaMenu {
 	private String recuperarMenu() {
 		return "Informe:\n\t"
 				+ "1 - Criar Conta\n\t"
+				+ "2 - Consultar Saldo\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	
