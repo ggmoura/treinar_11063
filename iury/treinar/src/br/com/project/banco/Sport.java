@@ -1,12 +1,20 @@
 package br.com.project.banco;
 
 public class Sport {
-	int hora = 2 ;
-	int tempo = hora * 60 ;
-	float queima = tempo /  ;
+	public static void main(String[] args) {
+		
 	
-	void caminhar () {
-		if ( tempo velocidade )
-	}
+	int peso = 80;
+	int hora = 2 ;
+	int distancia = 10 ;
 
+	
+	void caminhada(){
+		int queima;
+		if (queima peso * hora * distancia ) {
+			System.out.println(queima);
+			
+		}
+	}
+	}
 }

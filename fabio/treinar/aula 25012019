@@ -1,0 +1,31 @@
+no metodo com return tudo que estiver abaixo do return nao e executado;
+
+Evitar usar varias vezes o return 
+o bom e criar uma variavel e no fim de tudo o return recebe o valor dessa variavel;
+ --  Modificadores de acesso-- 
+ 
+ - public - enxerga a var e metodos em qualquer lugar do projeto;
+ - private - so poder ser manipulado internamente dentro do classe ou objeto;
+ - protected - so poder ser manipulado internamente dentro do classe ou objeto, nas classes do mesmo pacote ou dentro das classes herdadas; 
+ - defalt - so poder ser manipulado internamente dentro do classe ou objeto nas classes do mesmo pacote e nao vai na herança;
+ 
+ - todo atributo da classe deve ter um metodo de entrada e saida para ele permiindo que estejam disponivel em apis;
+ 
+ alt+shift+S gera os get e seters para encapsular atributos;
+ ctrl+shift+c comentar linhas
+ ctrl+shift+/ comenta 
+ ctrl+shift+/ Descocomenta
+ alt+shift+w, fecha janelas;
+ alt+shit+d,j aciona o debug;
+ 
+ f5 -entra no metodo (debug)
+ f6 - so executa o metodo (debug);
+ 
+ modulos de teste;
+ Cria-se uma package separada para criar classes com metodos de teste para saber se meotodos e classes criadas recentemente funcionam.
+ 
+ 
+ metodo contrutor da classe
+ 
+ sintaxe - nao tem tipo nenhum de retorno, nem a palavra void;
+ exemplo: public Conta();
