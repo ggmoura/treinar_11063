@@ -1,8 +1,15 @@
 package br.com.treinarminas.academico.datatypes;
 
+import br.com.treinarminas.academico.classandobject.Pessoa;
+
 public class DataType {
 
 	public static void main(String[] args) {
+		
+		Pessoa xpto = new Pessoa();
+		
+		//xpto.caloriasPerdidas = 100;
+		
 		// tipos de dados inteiros
 		byte idadePessoa = 120;
 		System.out.println("Idade da pessoa: " + idadePessoa);
