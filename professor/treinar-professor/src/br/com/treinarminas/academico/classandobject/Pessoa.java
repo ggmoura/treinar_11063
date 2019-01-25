@@ -9,7 +9,21 @@ public class Pessoa {
 	int caloriasPerdidas;
 	Endereco endereco;
 	
-	void caminhar() {
+	public Pessoa(String nome, char sexo) {
+		this(nome);
+		this.sexo = sexo;
+	}
+	
+	public Pessoa(String nome) {
+		//umra regra cabulosa para validar o nome
+		this.nome = nome;
+	}
+	
+	public Pessoa() {
+		super();
+	}
+
+	public void caminhar() {
 //		numeroPassoaDados = numeroPassoaDados + 1;
 //		numeroPassoaDados += 1;
 		numeroPassoaDados++;
@@ -18,11 +32,11 @@ public class Pessoa {
 		}
 	}
 	
-	void caminhar(int numeroPassos) {
+	public void caminhar(int numeroPassos) {
 //		numeroPassoaDados = numeroPassoaDados + 1;
 //		numeroPassoaDados += 1;
 		for (int i = 0; i < numeroPassos; i++) {
-			caminhar();
+			this.caminhar();
 		}
 	}
 	
