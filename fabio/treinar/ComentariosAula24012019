@@ -28,3 +28,11 @@ singleton - padrao de projeto para que nao seja possivel existir varias instanci
 instancia
 
 
+ctrl +shift+c comentra o bloco linha a linha;
+ctrl+shift+/ comenta o bloco;
+
+
+sobrecarga de metodos - assinatura do metod é mesma mas cada metodo tem uma cadeia de parametros
+
+
+
