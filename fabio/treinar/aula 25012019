@@ -25,7 +25,18 @@ o bom e criar uma variavel e no fim de tudo o return recebe o valor dessa variav
  Cria-se uma package separada para criar classes com metodos de teste para saber se meotodos e classes criadas recentemente funcionam.
  
  
- metodo contrutor da classe
+ metodo contrutor da classe - patrao de inicializacao da classe, pode ser sobrecarregado;
  
  sintaxe - nao tem tipo nenhum de retorno, nem a palavra void;
  exemplo: public Conta();
+ 
+ chamada encadeada de construtores
+ 
+ ler dados do teclado
+ 
+ import java.util.Scanner
+ 
+ Scanner leitor = new Scanner(System.in);
+ Integer opcao = leitor.nextInt();//
+ 
+ 
