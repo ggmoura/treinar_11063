@@ -21,6 +21,21 @@ public class Mouse {
 	// Regra clicarBtnEsquedo retrorna inteiro 2;
 	// Regra retorna quantidade clcks botao direito 
 	// Regra retorna quantidade clcks botao esquerdo c
+	
+	public Mouse() {
+		super();
+	}
+	
+	public Mouse(int numBotoes) {
+		this.numBotoes = numBotoes;
+	}
+	
+	public Mouse(int numBotoes, String modelo) {
+		this(numBotoes);
+		this.modelo = modelo;
+	}
+	
+	
 
 	public String getModelo() {
 		return modelo;
