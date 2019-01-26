@@ -26,6 +26,9 @@ public class TelaMenu {
 			case 2:
 				consultarSaldo();
 				break;
+			case 3:
+				depositar();
+				break;
 
 			default:
 				System.out.println("Opção inválida!");
@@ -37,6 +40,12 @@ public class TelaMenu {
 		leitor.close();
 	}
 	
+	private void depositar() {
+		System.out.print("Informe o valor a ser depositado: ");
+		controle.depositar(leitor.nextDouble());
+		System.out.println("Deposito efetuado com sucesso, seu novo saldo é: " + controle.recuperarSaldo());
+	}
+
 	private void consultarSaldo() {
 		System.out.println("Seu saldo atual é: " + controle.recuperarSaldo());
 	}
@@ -56,6 +65,7 @@ public class TelaMenu {
 		return "Informe:\n\t"
 				+ "1 - Criar Conta\n\t"
 				+ "2 - Consultar Saldo\n\t"
+				+ "3 - Depositar\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	

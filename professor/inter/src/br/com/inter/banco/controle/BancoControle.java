@@ -21,5 +21,9 @@ public class BancoControle {
 	public Double recuperarSaldo() {
 		return c.consultarSaldo();
 	}
+
+	public void depositar(double valor) {
+		c.depositar(valor);
+	}
 	
 }
