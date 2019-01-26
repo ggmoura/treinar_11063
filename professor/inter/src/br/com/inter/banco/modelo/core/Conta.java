@@ -18,6 +18,10 @@ public class Conta {
 		return this.saldo;
 	}
 	
+	public void sacar(double valor) {
+		this.saldo -= valor;
+	}
+	
 	public Integer getNumero() {
 		return numero;
 	}
