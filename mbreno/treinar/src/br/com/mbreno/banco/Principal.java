@@ -13,5 +13,10 @@ public class Principal {
 		Pessoa p1 = p;
 		
 		System.out.println(p1.nome);
+		p.nome ="Larissa";
+		System.out.println(p1.nome);
+		p = null;
+		System.out.println(p1.sexo);
+		p = new Pessoa();
 	}
 }
