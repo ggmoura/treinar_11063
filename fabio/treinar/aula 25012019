@@ -17,6 +17,9 @@ o bom e criar uma variavel e no fim de tudo o return recebe o valor dessa variav
  ctrl+shift+/ Descocomenta
  alt+shift+w, fecha janelas;
  alt+shit+d,j aciona o debug;
+ alt+shit+x,j aciona o executa;
+ ctrl+shift+r encontra uma classe aberta no ide;
+ 
  
  f5 -entra no metodo (debug)
  f6 - so executa o metodo (debug);
