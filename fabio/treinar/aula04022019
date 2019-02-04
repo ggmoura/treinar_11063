@@ -1,0 +1,17 @@
+aula 04022019
+herança - usado para reaproveitar codigo em tempo de desenvolvimento. No bite code todos os atributos e metodos 
+ser copiados para cada instancia.
+palavra reservada em java que define heranca é a extends".
+Para toda heranca e necessario fazer um import da classe pai na classe filha.
+
+
+JavaBean;
+
+alt+shift +s  abre opcoes de criacao de classe
+ 
+quando se define uma classe como abstract é porque se deseja que ela nao pode ser instanciada, 
+com isso ninguem pode dar new nessa classe.
+exemplo: public static void teste;
+No exemplo a classe so serve para ser herdada por outras classes;
+
+
