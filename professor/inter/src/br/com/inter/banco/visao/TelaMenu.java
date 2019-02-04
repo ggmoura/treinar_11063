@@ -60,8 +60,9 @@ public class TelaMenu {
 	}
 
 	private void criarConta() {
-		System.out.println(imprimirMenuConta());
+		System.out.print(imprimirMenuConta());
 		Integer tipoConta = leitor.nextInt();
+		leitor.nextLine();
 		System.out.print("Informe o nome do Cliente: ");
 		String nomeCliente = leitor.nextLine();
 		System.out.print("Informe o CPF do Cliente: ");
