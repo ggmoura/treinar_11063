@@ -1,7 +1,12 @@
 aula 04022019
 herança - usado para reaproveitar codigo em tempo de desenvolvimento. No bite code todos os atributos e metodos 
 ser copiados para cada instancia.
-palavra reservada em java que define heranca é a extends".
+        - Alguns modificadores de acesso se utilizam da heranca para para acessar metodos que nao estao visiveis
+        no caso estao em protected
+
+
+
+palavra reservada em java que define heranca é a "extends".
 Para toda heranca e necessario fazer um import da classe pai na classe filha.
 
 
@@ -13,5 +18,31 @@ quando se define uma classe como abstract é porque se deseja que ela nao pode se
 com isso ninguem pode dar new nessa classe.
 exemplo: public static void teste;
 No exemplo a classe so serve para ser herdada por outras classes;
+
+alt+shift+r renomeia variavel
+
+
+Classe abstrata com a palavra "abstract" nao pode ser instanciada diretamente.
+classe abstrata nao pode dar new nela, apenas uma classe filha pode instaciar uma classe pai abstrata.
+todo metodo abstrato da classe pai deve ser implementado na classe filha ou deve ter uma referencia abstrata
+que a proxima classe filha deve implementar.
+
+Seo metodo nao e abstract é chamado de concreto, e nao tem palavra reservada para ele, apenas nao colocar abstract
+@Overide - é para dizer que o metodo foi inscrito na classe pai.
+no caso é chamado de anotacao, nao e comentario. Foi feito para informar algo ao programador em tempo de pro-
+gramacao o que foi feito do metodo que a anotacao se refere
+
+palavra reservada "super" é para referenciar metodos e atributos que estao na classe pai
+
+java nao permite heranca multipla tipo: extends a,b
+
+o que pode é criar uma "arvore" de herancas
+
+para forçar uma heranca multipla devemos ter interfaces
+
+
+?Toda classe filha de uma classe abstrata ou ela é abstrata tambem ou deve implemntar o ou os metodos abstratos dela.
+
+ctrl+shift+r = open resouce serve para encontrar alguma classe no meio das N classes do projeto
 
 
