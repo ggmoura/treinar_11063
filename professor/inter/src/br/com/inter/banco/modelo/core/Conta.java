@@ -1,6 +1,6 @@
 package br.com.inter.banco.modelo.core;
 
-public class Conta {
+public abstract class Conta {
 
 	private Integer numero;
 	private Double saldo;

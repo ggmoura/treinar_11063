@@ -60,14 +60,46 @@ public class TelaMenu {
 	}
 
 	private void criarConta() {
+		System.out.println(imprimirMenuConta());
+		Integer tipoConta = leitor.nextInt();
 		System.out.print("Informe o nome do Cliente: ");
 		String nomeCliente = leitor.nextLine();
 		System.out.print("Informe o CPF do Cliente: ");
 		Long cpf = leitor.nextLong();
 		System.out.print("Informe o número da Conta: ");
 		Integer numeroConta = leitor.nextInt();
-		controle.criarConta(nomeCliente, numeroConta, cpf);
+		switch (tipoConta) {
+		case 1:
+			System.out.print("Informe o limite de crédito da Conta: ");
+			Double limiteCredito = leitor.nextDouble();
+			System.out.print("Informe o valor da taxa de manutenção da Conta: ");
+			Double taxaManutencao = leitor.nextDouble();
+			controle.criarContaCorrente(nomeCliente, numeroConta, cpf, limiteCredito, taxaManutencao);
+			break;
+		case 2:
+			System.out.print("Informe a taxa de rendimento: ");
+			Float taxaRendimento = leitor.nextFloat();
+			
+			controle.criarContaPoupanca(nomeCliente, numeroConta, cpf, taxaRendimento);
+			break;
+		case 3:
+			System.out.print("Informe o dia do depósito do salário: ");
+			Integer diaDepositoSalario = leitor.nextInt();
+			controle.criarContaSalario(nomeCliente, numeroConta, cpf, diaDepositoSalario);
+			break;
+
+		default:
+			break;
+		}
 		System.out.println("\nConta criada com sucesso!\n");
+	}
+
+	private String imprimirMenuConta() {
+		return "Informe:\n\t"
+				+ "1 - Conta Corrente\n\t"
+				+ "2 - Conta Poupança\n\t"
+				+ "3 - Conta Salário\n\t"
+				+ "\n==> ";
 	}
 
 	private String recuperarMenu() {
