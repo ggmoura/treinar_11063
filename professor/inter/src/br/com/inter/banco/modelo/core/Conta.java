@@ -10,16 +10,14 @@ public abstract class Conta {
 		this.saldo = 0.0;
 	}
 
-	public void depositar(Double valor) {
-		this.saldo += valor;
-	}
-	
+	public abstract void depositar(Double valor);
+
 	public Double consultarSaldo() {
 		return this.saldo;
 	}
 	
-	public void sacar(double valor) {
-		this.saldo -= valor;
+	public void sacar(Double valor) {
+		setSaldo(getSaldo() - valor);
 	}
 	
 	public Integer getNumero() {
@@ -30,11 +28,11 @@ public abstract class Conta {
 		this.numero = numero;
 	}
 
-	public Double getSaldo() {
+	protected Double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	protected void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
 

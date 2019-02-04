@@ -14,4 +14,9 @@ public class ContaSalario extends Conta {
 		this.diaDepositoSalario = diaDepositoSalario;
 	}
 
+	@Override
+	public void depositar(Double valor) {
+		setSaldo(super.getSaldo() - valor);
+	}
+
 }
