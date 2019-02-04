@@ -69,6 +69,7 @@ public class TelaMenu {
 		Long cpf = leitor.nextLong();
 		System.out.print("Informe o número da Conta: ");
 		Integer numeroConta = leitor.nextInt();
+		leitor.nextLine();
 		switch (tipoConta) {
 		case 1:
 			System.out.print("Informe o limite de crédito da Conta: ");
