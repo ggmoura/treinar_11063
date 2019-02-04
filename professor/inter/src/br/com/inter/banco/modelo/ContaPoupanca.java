@@ -14,4 +14,9 @@ public class ContaPoupanca extends Conta {
 		this.taxaRendimento = taxaRendimento;
 	}
 
+	@Override
+	public void depositar(Double valor) {
+		setSaldo(getSaldo() + valor);
+	}
+
 }
