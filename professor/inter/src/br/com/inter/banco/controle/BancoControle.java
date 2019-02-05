@@ -9,23 +9,29 @@ import br.com.inter.banco.util.Storage;
 
 public class BancoControle {
 
+	private Storage storage;
+	
+	public BancoControle() {
+		storage = Storage.getInstance();
+	}
+
 	public Double recuperarSaldo() {
-		Conta c = Storage.getInstance().getConta();
+		Conta c = storage.getConta();
 		return c.consultarSaldo();
 	}
 
 	public void depositar(Double valor) {
-		Conta c = Storage.getInstance().getConta();
+		Conta c = storage.getConta();
 		c.depositar(valor);
 	}
 
 	public void sacar(Double valor) {
-		Conta c = Storage.getInstance().getConta();
+		Conta c = storage.getConta();
 		c.sacar(valor);
 	}
 
 	private void criarConta(String nomeCliente, Integer numeroConta, Long cpf) {
-		Conta c = Storage.getInstance().getConta();
+		Conta c = storage.getConta();
 		c.setNumero(numeroConta);
 		Cliente cliente = new Cliente();
 		cliente.setNomeCliente(nomeCliente);
@@ -35,7 +41,7 @@ public class BancoControle {
 	
 	public void criarContaCorrente(String nomeCliente, Integer numeroConta, Long cpf, Double limiteCredito,
 			Double taxaManutencao) {
-		Storage.getInstance().setConta(new ContaCorrente());
+		storage.setConta(new ContaCorrente());
 		this.criarConta(nomeCliente, numeroConta, cpf);
 		((ContaCorrente) Storage.getInstance().getConta()).setTaxaManutencao(taxaManutencao);
 		((ContaCorrente) Storage.getInstance().getConta()).setTetoLimiteCredito(limiteCredito);
@@ -43,12 +49,12 @@ public class BancoControle {
 	}
 
 	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf, Float taxaRendimento) {
-		Storage.getInstance().setConta(new ContaPoupanca());
+		storage.setConta(new ContaPoupanca());
 		this.criarConta(nomeCliente, numeroConta, cpf);
 	}
 
 	public void criarContaSalario(String nomeCliente, Integer numeroConta, Long cpf, Integer diaDepositoSalario) {
-		Storage.getInstance().setConta(new ContaSalario());
+		storage.setConta(new ContaSalario());
 		this.criarConta(nomeCliente, numeroConta, cpf);
 		((ContaSalario) Storage.getInstance().getConta()).setDiaDepositoSalario(diaDepositoSalario);
 	}
