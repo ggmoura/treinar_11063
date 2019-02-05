@@ -5,24 +5,27 @@ import br.com.inter.banco.modelo.ContaPoupanca;
 import br.com.inter.banco.modelo.ContaSalario;
 import br.com.inter.banco.modelo.core.Cliente;
 import br.com.inter.banco.modelo.core.Conta;
+import br.com.inter.banco.util.Storage;
 
 public class BancoControle {
 
-	private Conta c;
-
 	public Double recuperarSaldo() {
+		Conta c = Storage.getInstance().getConta();
 		return c.consultarSaldo();
 	}
 
 	public void depositar(Double valor) {
+		Conta c = Storage.getInstance().getConta();
 		c.depositar(valor);
 	}
 
 	public void sacar(Double valor) {
+		Conta c = Storage.getInstance().getConta();
 		c.sacar(valor);
 	}
 
 	private void criarConta(String nomeCliente, Integer numeroConta, Long cpf) {
+		Conta c = Storage.getInstance().getConta();
 		c.setNumero(numeroConta);
 		Cliente cliente = new Cliente();
 		cliente.setNomeCliente(nomeCliente);
@@ -32,22 +35,22 @@ public class BancoControle {
 	
 	public void criarContaCorrente(String nomeCliente, Integer numeroConta, Long cpf, Double limiteCredito,
 			Double taxaManutencao) {
-		c = new ContaCorrente();
+		Storage.getInstance().setConta(new ContaCorrente());
 		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaCorrente) c).setTaxaManutencao(taxaManutencao);
-		((ContaCorrente) c).setTetoLimiteCredito(limiteCredito);
-		((ContaCorrente) c).setLimiteCredito(limiteCredito);
+		((ContaCorrente) Storage.getInstance().getConta()).setTaxaManutencao(taxaManutencao);
+		((ContaCorrente) Storage.getInstance().getConta()).setTetoLimiteCredito(limiteCredito);
+		((ContaCorrente) Storage.getInstance().getConta()).setLimiteCredito(limiteCredito);
 	}
 
 	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf, Float taxaRendimento) {
-		c = new ContaPoupanca();
+		Storage.getInstance().setConta(new ContaPoupanca());
 		this.criarConta(nomeCliente, numeroConta, cpf);
 	}
 
 	public void criarContaSalario(String nomeCliente, Integer numeroConta, Long cpf, Integer diaDepositoSalario) {
-		c = new ContaSalario();
+		Storage.getInstance().setConta(new ContaSalario());
 		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaSalario) c).setDiaDepositoSalario(diaDepositoSalario);
+		((ContaSalario) Storage.getInstance().getConta()).setDiaDepositoSalario(diaDepositoSalario);
 	}
 
 	public void alterarTaxaRendimento(Float taxaRendimento) {
