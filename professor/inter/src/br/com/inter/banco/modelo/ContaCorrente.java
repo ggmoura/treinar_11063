@@ -56,4 +56,12 @@ public class ContaCorrente extends Conta {
 		this.taxaManutencao = taxaManutencao;
 	}
 
+	public Double getTetoLimiteCredito() {
+		return tetoLimiteCredito;
+	}
+
+	public void setTetoLimiteCredito(Double tetoLimiteCredito) {
+		this.tetoLimiteCredito = tetoLimiteCredito;
+	}
+
 }
