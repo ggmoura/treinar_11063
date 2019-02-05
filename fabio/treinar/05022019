@@ -1,2 +1,25 @@
 aula 05022019
 
+atributos staticos - nao e uma constante e sim um atributo usado para ser referenciado 
+pelas instancias mas que aponta para um endereco de memoria so.
+sado para palavra "Static"
+
+crtl + shift + g - em cima do metodo mostra todas as classses que usam aquele metodo
+alt+shift+s,r - usado para gerar os gets e sets
+
+ctrl+1 cria um metodo ainda nao criado a partir da escrita do metodo
+
+sempre que tenho atributo statico deve-se chamar o inicializador de stributos 
+
+metodo: Nesse caso ai o bloco de atributo statico deve respeitar a ordem na qual ele deve ser usado 
+diferente de uma simples variavel ou metodo que pode ser solto na classe.
+entao deve estar no inicio da classe  
+    O java so executa o bloco de inicialiazacao static so uma vez quando manda o codigo para bitecode depois nao
+    passa mais no bloco de inicializacao
+    
+    o metodo static nao precisa instanciar a classe para invocar o metodo;
+    o atributo statico e de posse da classe e nao de um metodo especifico
+    
+    static{
+    // metodo inicializador de atributos staticos
+    }
