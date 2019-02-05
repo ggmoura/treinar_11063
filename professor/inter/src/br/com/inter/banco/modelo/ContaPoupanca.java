@@ -4,14 +4,18 @@ import br.com.inter.banco.modelo.core.Conta;
 
 public class ContaPoupanca extends Conta {
 
-	private Float taxaRendimento;
-
-	public Float getTaxaRendimento() {
-		return taxaRendimento;
+	static {
+		taxaRendimento = 0f;
 	}
 
-	public void setTaxaRendimento(Float taxaRendimento) {
-		this.taxaRendimento = taxaRendimento;
+	private static Float taxaRendimento;
+
+	public static Float getTaxaRendimento() {
+		return ContaPoupanca.taxaRendimento;
+	}
+
+	public static void setTaxaRendimento(Float taxaRendimento) {
+		ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
 
 	@Override

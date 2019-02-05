@@ -42,14 +42,16 @@ public class BancoControle {
 	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf, Float taxaRendimento) {
 		c = new ContaPoupanca();
 		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaPoupanca) c).setTaxaRendimento(taxaRendimento);
-		
 	}
 
 	public void criarContaSalario(String nomeCliente, Integer numeroConta, Long cpf, Integer diaDepositoSalario) {
 		c = new ContaSalario();
 		this.criarConta(nomeCliente, numeroConta, cpf);
 		((ContaSalario) c).setDiaDepositoSalario(diaDepositoSalario);
+	}
+
+	public void alterarTaxaRendimento(Float taxaRendimento) {
+		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 	}
 	
 }

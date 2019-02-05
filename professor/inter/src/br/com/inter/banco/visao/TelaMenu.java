@@ -3,6 +3,7 @@ package br.com.inter.banco.visao;
 import java.util.Scanner;
 
 import br.com.inter.banco.controle.BancoControle;
+import br.com.inter.banco.modelo.ContaPoupanca;
 
 public class TelaMenu {
 
@@ -32,6 +33,9 @@ public class TelaMenu {
 			case 4:
 				sacar();
 				break;
+			case 5:
+				definirTaxaRendimento();
+				break;
 
 			default:
 				System.out.println("Opção inválida!");
@@ -43,6 +47,13 @@ public class TelaMenu {
 		leitor.close();
 	}
 	
+	private void definirTaxaRendimento() {
+		System.out.print("Informe a nova taxa de rendimento: ");
+		Float taxa = leitor.nextFloat();
+		controle.alterarTaxaRendimento(taxa);
+		System.out.println(ContaPoupanca.getTaxaRendimento());
+	}
+
 	private void sacar() {
 		System.out.print("Qual o valor você quer sacar: ");
 		controle.sacar(leitor.nextDouble());
@@ -110,6 +121,7 @@ public class TelaMenu {
 				+ "2 - Consultar Saldo\n\t"
 				+ "3 - Depositar\n\t"
 				+ "4 - Sacar\n\t"
+				+ "5 - Definir taxa rendimento poupança\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	
