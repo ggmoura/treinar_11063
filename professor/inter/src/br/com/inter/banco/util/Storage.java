@@ -16,7 +16,7 @@ public class Storage {
 	}
 
 	private Storage() {
-
+		super();
 	}
 
 	public Conta getConta() {
