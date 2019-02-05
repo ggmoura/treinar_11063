@@ -38,7 +38,7 @@ java nao permite heranca multipla tipo: extends a,b
 
 o que pode é criar uma "arvore" de herancas
 
-para forçar uma heranca multipla devemos ter interfaces
+ara forçar uma heranca multipla devemos ter interfaces
 
 
 ?Toda classe filha de uma classe abstrata ou ela é abstrata tambem ou deve implemntar o ou os metodos abstratos dela.
