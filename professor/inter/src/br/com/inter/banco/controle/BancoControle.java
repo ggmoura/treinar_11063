@@ -35,6 +35,7 @@ public class BancoControle {
 		c = new ContaCorrente();
 		this.criarConta(nomeCliente, numeroConta, cpf);
 		((ContaCorrente) c).setTaxaManutencao(taxaManutencao);
+		((ContaCorrente) c).setTetoLimiteCredito(limiteCredito);
 		((ContaCorrente) c).setLimiteCredito(limiteCredito);
 	}
 
