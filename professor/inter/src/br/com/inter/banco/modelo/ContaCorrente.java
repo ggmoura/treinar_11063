@@ -18,7 +18,6 @@ public class ContaCorrente extends Conta {
 				setSaldo(0d);
 			}
 		}
-		super.setSaldo(getSaldo() - valor);
 	}
 
 	@Override
