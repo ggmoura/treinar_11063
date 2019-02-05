@@ -23,7 +23,7 @@ public class ContaCorrente extends Conta {
 	@Override
 	public void depositar(Double valor) {
 		if (limiteCredito < tetoLimiteCredito) {
-			if (valor < tetoLimiteCredito - limiteCredito) {
+			if (valor <= tetoLimiteCredito - limiteCredito) {
 				limiteCredito += valor;
 			} else {
 				setSaldo(tetoLimiteCredito - limiteCredito);

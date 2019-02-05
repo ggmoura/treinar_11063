@@ -16,7 +16,7 @@ public class ContaSalario extends Conta {
 
 	@Override
 	public void depositar(Double valor) {
-		setSaldo(super.getSaldo() - valor);
+		setSaldo(super.getSaldo() + valor);
 	}
 
 }
