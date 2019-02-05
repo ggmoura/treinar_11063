@@ -46,3 +46,12 @@ para forçar uma heranca multipla devemos ter interfaces
 ctrl+shift+r = open resouce serve para encontrar alguma classe no meio das N classes do projeto
 
 
+
+Polimorfismo - é a capacidade que o objeto tem de se comportar de maneira diferente em tempo de execucao de acordo com a 
+instancia que estiver naquela classe que o objeto foi instanciado.
+o que da suporte ao polimorfismo é a heranca
+
+tribuicao polomorfica:   c=new contaSalario ou c= new contaCorrente
+
+
+
