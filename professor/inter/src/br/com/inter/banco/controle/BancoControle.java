@@ -1,6 +1,7 @@
 package br.com.inter.banco.controle;
 
 import br.com.inter.banco.modelo.ContaCorrente;
+import br.com.inter.banco.modelo.ContaInvestimento;
 import br.com.inter.banco.modelo.ContaPoupanca;
 import br.com.inter.banco.modelo.ContaSalario;
 import br.com.inter.banco.modelo.core.Cliente;
@@ -62,6 +63,7 @@ public class BancoControle {
 	}
 	
 	public void criarContaInvestimento(String nomeCliente, Integer numeroConta, Long cpf) {
+		storage.setConta(new ContaInvestimento());
 		this.criarConta(nomeCliente, numeroConta, cpf);
 	}
 
