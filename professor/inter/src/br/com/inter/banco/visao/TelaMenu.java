@@ -4,11 +4,17 @@ import java.util.Scanner;
 
 import br.com.inter.banco.controle.BancoControle;
 import br.com.inter.banco.modelo.ContaPoupanca;
+import br.com.inter.banco.modelo.core.IConstante;
 
 public class TelaMenu {
 
+	private static final Integer HORA_ABERTURA;
 	private BancoControle controle;
 	private Scanner leitor;
+	
+	static {
+		HORA_ABERTURA = 10;
+	}
 	
 	public TelaMenu() {
 		controle = new BancoControle();
@@ -16,6 +22,7 @@ public class TelaMenu {
 	}
 	
 	public void iniciarMenu() {
+		System.out.println("O Banco abre as: ".concat(HORA_ABERTURA.toString()));
 		System.out.print(recuperarMenu());
 		Integer opcao = leitor.nextInt();
 		leitor.nextLine();
@@ -36,6 +43,12 @@ public class TelaMenu {
 			case 5:
 				definirTaxaRendimento();
 				break;
+			case 6:
+				tarifarConta();
+				break;
+			case 7:
+				creditarLucro();
+				break;
 
 			default:
 				System.out.println("Opção inválida!");
@@ -47,6 +60,14 @@ public class TelaMenu {
 		leitor.close();
 	}
 	
+	private void creditarLucro() {
+		controle.creditar();
+	}
+
+	private void tarifarConta() {
+		controle.tarifar();
+	}
+
 	private void definirTaxaRendimento() {
 		System.out.print("Informe a nova taxa de rendimento: ");
 		Float taxa = leitor.nextFloat();
@@ -104,7 +125,7 @@ public class TelaMenu {
 		default:
 			break;
 		}
-		System.out.println("\nConta criada com sucesso!\n");
+		System.out.println(IConstante.Mensagem.CONTA_CRIADA_SUCESSO);
 	}
 
 	private String imprimirMenuConta() {
