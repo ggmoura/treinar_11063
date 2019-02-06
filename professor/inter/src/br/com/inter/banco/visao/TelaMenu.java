@@ -6,23 +6,18 @@ import br.com.inter.banco.controle.BancoControle;
 import br.com.inter.banco.modelo.ContaPoupanca;
 import br.com.inter.banco.modelo.core.IConstante;
 
+//TODO - Criar schedule para cobrar e creditar as contas
 public class TelaMenu {
 
-	private static final Integer HORA_ABERTURA;
 	private BancoControle controle;
 	private Scanner leitor;
-	
-	static {
-		HORA_ABERTURA = 10;
-	}
-	
+
 	public TelaMenu() {
 		controle = new BancoControle();
 		leitor = new Scanner(System.in);
 	}
 	
 	public void iniciarMenu() {
-		System.out.println("O Banco abre as: ".concat(HORA_ABERTURA.toString()));
 		System.out.print(recuperarMenu());
 		Integer opcao = leitor.nextInt();
 		leitor.nextLine();
@@ -121,6 +116,9 @@ public class TelaMenu {
 			Integer diaDepositoSalario = leitor.nextInt();
 			controle.criarContaSalario(nomeCliente, numeroConta, cpf, diaDepositoSalario);
 			break;
+		case 4:
+			controle.criarContaInvestimento(nomeCliente, numeroConta, cpf);
+			break;
 
 		default:
 			break;
@@ -133,6 +131,7 @@ public class TelaMenu {
 				+ "1 - Conta Corrente\n\t"
 				+ "2 - Conta Poupança\n\t"
 				+ "3 - Conta Salário\n\t"
+				+ "4 - Conta Investimento\n\t"
 				+ "\n==> ";
 	}
 
@@ -144,7 +143,7 @@ public class TelaMenu {
 				+ "4 - Sacar\n\t"
 				+ "5 - Definir taxa rendimento poupança\n\t"
 				+ "6 - Tarifar\n\t"
-				+ "7 - Cerditar\n\t"
+				+ "7 - Creditar\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	
