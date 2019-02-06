@@ -116,10 +116,7 @@ public class TelaMenu {
 			controle.criarContaCorrente(nomeCliente, numeroConta, cpf, limiteCredito, taxaManutencao);
 			break;
 		case 2:
-			System.out.print("Informe a taxa de rendimento: ");
-			Float taxaRendimento = leitor.nextFloat();
-			
-			controle.criarContaPoupanca(nomeCliente, numeroConta, cpf, taxaRendimento);
+			controle.criarContaPoupanca(nomeCliente, numeroConta, cpf);
 			break;
 		case 3:
 			System.out.print("Informe o dia do depósito do salário: ");
