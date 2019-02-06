@@ -18,53 +18,58 @@ public class BancoControle {
 		storage = Storage.getInstance();
 	}
 
-	public Double recuperarSaldo() {
-		Conta c = storage.getConta();
+	public Double recuperarSaldo(Integer numeroConta) {
+		Conta c = storage.getConta(numeroConta);
 		return c.consultarSaldo();
 	}
 
-	public void depositar(Double valor) {
-		Conta c = storage.getConta();
+	public void depositar(Integer numeroConta, Double valor) {
+		Conta c = storage.getConta(numeroConta);
 		c.depositar(valor);
 	}
 
-	public void sacar(Double valor) {
-		Conta c = storage.getConta();
-		c.sacar(valor);
+	public void sacar(Integer numeroConta, Double valor) {
+		Conta c = storage.getConta(numeroConta);
+		if (c != null) {
+			c.sacar(valor);
+		}
 	}
 
-	private void criarConta(String nomeCliente, Integer numeroConta, Long cpf) {
-		Conta c = storage.getConta();
-		c.setNumero(numeroConta);
+	private void criarConta(Conta conta, String nomeCliente, Integer numeroConta, Long cpf) {
+		conta.setNumero(numeroConta);
 		Cliente cliente = new Cliente();
 		cliente.setNomeCliente(nomeCliente);
 		cliente.setCpf(cpf);
-		c.setCliente(cliente);
+		conta.setCliente(cliente);
 	}
 	
 	public void criarContaCorrente(String nomeCliente, Integer numeroConta, Long cpf, Double limiteCredito,
 			Double taxaManutencao) {
-		storage.setConta(new ContaCorrente());
-		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaCorrente) storage.getConta()).setTaxaManutencao(taxaManutencao);
-		((ContaCorrente) storage.getConta()).setTetoLimiteCredito(limiteCredito);
-		((ContaCorrente) storage.getConta()).setLimiteCredito(limiteCredito);
+		final ContaCorrente conta = new ContaCorrente();
+		this.criarConta(conta, nomeCliente, numeroConta, cpf);
+		conta.setTaxaManutencao(taxaManutencao);
+		conta.setTetoLimiteCredito(limiteCredito);
+		conta.setLimiteCredito(limiteCredito);
+		storage.adicionarConta(conta);
 	}
 
 	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf, Float taxaRendimento) {
-		storage.setConta(new ContaPoupanca());
-		this.criarConta(nomeCliente, numeroConta, cpf);
+		ContaPoupanca conta = new ContaPoupanca();
+		this.criarConta(conta, nomeCliente, numeroConta, cpf);
+		storage.adicionarConta(conta);
 	}
 
 	public void criarContaSalario(String nomeCliente, Integer numeroConta, Long cpf, Integer diaDepositoSalario) {
-		storage.setConta(new ContaSalario());
-		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaSalario) storage.getConta()).setDiaDepositoSalario(diaDepositoSalario);
+		ContaSalario conta = new ContaSalario();
+		this.criarConta(conta, nomeCliente, numeroConta, cpf);
+		conta.setDiaDepositoSalario(diaDepositoSalario);
+		storage.adicionarConta(conta);
 	}
 	
 	public void criarContaInvestimento(String nomeCliente, Integer numeroConta, Long cpf) {
-		storage.setConta(new ContaInvestimento());
-		this.criarConta(nomeCliente, numeroConta, cpf);
+		ContaInvestimento conta = new ContaInvestimento();
+		this.criarConta(conta, nomeCliente, numeroConta, cpf);
+		storage.adicionarConta(conta);
 	}
 
 	public void alterarTaxaRendimento(Float taxaRendimento) {
@@ -72,18 +77,22 @@ public class BancoControle {
 	}
 
 	public void tarifar() {
-		Conta c = storage.getConta();
-		if (c instanceof IProdutoPagavel) {
-			IProdutoPagavel p = (IProdutoPagavel) c;
-			p.cobrar();
+		Conta[] contas = storage.getContas();
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] instanceof IProdutoPagavel) {
+				IProdutoPagavel p = (IProdutoPagavel) contas[i];
+				p.cobrar();
+			}
 		}
 	}
 
 	public void creditar() {
-		Conta c = storage.getConta();
-		if (c instanceof IProdutoRentavel) {
-			IProdutoRentavel p = (IProdutoRentavel) c;
-			p.creditar();
+		Conta[] contas = storage.getContas();
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] instanceof IProdutoRentavel) {
+				IProdutoRentavel p = (IProdutoRentavel) contas[i];
+				p.creditar();
+			}
 		}
 	}
 
