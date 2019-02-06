@@ -6,8 +6,12 @@ sado para palavra "Static"
 
 crtl + shift + g - em cima do metodo mostra todas as classses que usam aquele metodo
 alt+shift+s,r - usado para gerar os gets e sets
+ctrl+shift+c comenta linha
 
 ctrl+1 cria um metodo ainda nao criado a partir da escrita do metodo
+
+crtl+shift+w fecha os arquivos .java aberto na ide
+
 
 sempre que tenho atributo statico deve-se chamar o inicializador de stributos 
 
@@ -23,3 +27,82 @@ entao deve estar no inicio da classe
     static{
     // metodo inicializador de atributos staticos
     }
+    
+    
+    dentro de um metodo statico so posso ter acesso a atributos staticos
+    ou instanciar algum outro metodo de instancia.
+    
+    
+    palavra extends e porque uma interface pode extender outra interface
+    
+    
+    4 modificadores de acesso: private, public, abstract, protected
+    
+  --------  PADRAO DE PROJETO SINGLELTON -------------
+  https://www.devmedia.com.br/padrao-de-projeto-singleton-em-java/26392
+  https://lucasgarciablog.wordpress.com/2016/02/10/delphi-criando-classe-singleton/
+  
+  Criar uma classe onde possa ser gerenciado todos os news que essa classe recebe, no geral o ideal e que seja apenas 1 só
+  
+  Exemplo: 
+  
+  private static Storage instance;
+  
+  static{
+  	instance = new storage;
+  }
+  
+  public satatic storage getInstance(){
+  	return instance;
+  }
+  
+  private Storage(){
+  	super();
+  }
+  
+  
+  ------------------------ INTERFACE ------------------------
+  especie de contrato
+  
+  
+  É parecido com metodo abstrato porem so tem assinatura de metodos e todos tbm sao so tem assinatura;
+  Antes de qualquer interface o bom programador coloca i antes do nome da interface
+  tipo: iProduto;
+  
+  assinatura:
+  
+  public interface IProduto{
+  	//todo metodo e atributo ja e por padrao, publico e estatico
+  	entao:
+  	void pagar();  
+  }
+  
+  dentro da interface pode existir constantes; 
+  constante nao e obrigado ser estatico
+  
+  constate escreve:  public static final TESTE = 0;
+  
+  convencao: tota constante deve ser letra maiuscula;
+  
+  
+  
+---------------  Atributo do tipo final -----
+é o tipo chamado de constante. Hora nenhum o atributo pode mudar
+e com isso ele deve ser iniciado com sistema.
+
+e deve ser escrito com letra maiuscula
+private static final Integer HORA-ABERTURA;
+e deve ser usado bloco de inicializacao  -  static{};
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
