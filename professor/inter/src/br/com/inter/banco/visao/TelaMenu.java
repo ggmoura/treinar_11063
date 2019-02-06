@@ -143,6 +143,8 @@ public class TelaMenu {
 				+ "3 - Depositar\n\t"
 				+ "4 - Sacar\n\t"
 				+ "5 - Definir taxa rendimento poupança\n\t"
+				+ "6 - Tarifar\n\t"
+				+ "7 - Cerditar\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	
