@@ -5,6 +5,8 @@ import br.com.inter.banco.modelo.ContaPoupanca;
 import br.com.inter.banco.modelo.ContaSalario;
 import br.com.inter.banco.modelo.core.Cliente;
 import br.com.inter.banco.modelo.core.Conta;
+import br.com.inter.banco.modelo.core.IProdutoPagavel;
+import br.com.inter.banco.modelo.core.IProdutoRentavel;
 import br.com.inter.banco.util.Storage;
 
 public class BancoControle {
@@ -43,9 +45,9 @@ public class BancoControle {
 			Double taxaManutencao) {
 		storage.setConta(new ContaCorrente());
 		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaCorrente) Storage.getInstance().getConta()).setTaxaManutencao(taxaManutencao);
-		((ContaCorrente) Storage.getInstance().getConta()).setTetoLimiteCredito(limiteCredito);
-		((ContaCorrente) Storage.getInstance().getConta()).setLimiteCredito(limiteCredito);
+		((ContaCorrente) storage.getConta()).setTaxaManutencao(taxaManutencao);
+		((ContaCorrente) storage.getConta()).setTetoLimiteCredito(limiteCredito);
+		((ContaCorrente) storage.getConta()).setLimiteCredito(limiteCredito);
 	}
 
 	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf, Float taxaRendimento) {
@@ -56,11 +58,27 @@ public class BancoControle {
 	public void criarContaSalario(String nomeCliente, Integer numeroConta, Long cpf, Integer diaDepositoSalario) {
 		storage.setConta(new ContaSalario());
 		this.criarConta(nomeCliente, numeroConta, cpf);
-		((ContaSalario) Storage.getInstance().getConta()).setDiaDepositoSalario(diaDepositoSalario);
+		((ContaSalario) storage.getConta()).setDiaDepositoSalario(diaDepositoSalario);
 	}
 
 	public void alterarTaxaRendimento(Float taxaRendimento) {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
+	}
+
+	public void tarifar() {
+		Conta c = storage.getConta();
+		if (c instanceof IProdutoPagavel) {
+			IProdutoPagavel p = (IProdutoPagavel) c;
+			p.cobrar();
+		}
+	}
+
+	public void creditar() {
+		Conta c = storage.getConta();
+		if (c instanceof IProdutoRentavel) {
+			IProdutoRentavel p = (IProdutoRentavel) c;
+			p.creditar();
+		}
 	}
 	
 }

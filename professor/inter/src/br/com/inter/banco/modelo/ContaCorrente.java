@@ -1,12 +1,24 @@
 package br.com.inter.banco.modelo;
 
 import br.com.inter.banco.modelo.core.Conta;
+import br.com.inter.banco.modelo.core.IProdutoPagavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements IProdutoPagavel {
 
 	private Double limiteCredito;
 	private Double taxaManutencao;
 	private Double tetoLimiteCredito;
+	private Long id;
+	
+	@Override
+	public Object getId() {
+		return id;
+	}
+	
+	@Override
+	public void setId(Object id) {
+		this.id = (Long) id;
+	}
 	
 	@Override
 	public void sacar(Double valor) {
@@ -61,6 +73,11 @@ public class ContaCorrente extends Conta {
 
 	public void setTetoLimiteCredito(Double tetoLimiteCredito) {
 		this.tetoLimiteCredito = tetoLimiteCredito;
+	}
+
+	@Override
+	public void cobrar() {
+		sacar(taxaManutencao);
 	}
 
 }
