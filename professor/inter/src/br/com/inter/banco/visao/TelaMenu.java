@@ -71,19 +71,29 @@ public class TelaMenu {
 	}
 
 	private void sacar() {
+		final Integer numeroConta = recuperarNumeroConta();
 		System.out.print("Qual o valor você quer sacar: ");
-		controle.sacar(leitor.nextDouble());
-		System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo());
+		final Double valor = leitor.nextDouble();
+		controle.sacar(numeroConta, valor);
+		System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo(numeroConta));
 	}
 
 	private void depositar() {
+		final Integer numeroConta = recuperarNumeroConta();
 		System.out.print("Informe o valor a ser depositado: ");
-		controle.depositar(leitor.nextDouble());
-		System.out.println("Deposito efetuado com sucesso, seu novo saldo é: " + controle.recuperarSaldo());
+		controle.depositar(numeroConta, leitor.nextDouble());
+		System.out.println("Deposito efetuado com sucesso, seu novo saldo é: " + controle.recuperarSaldo(numeroConta));
+	}
+
+	private Integer recuperarNumeroConta() {
+		System.out.print("Número da conta: ");
+		final Integer numeroConta = leitor.nextInt();
+		return numeroConta;
 	}
 
 	private void consultarSaldo() {
-		System.out.println("Seu saldo atual é: " + controle.recuperarSaldo());
+		final Integer numeroConta = recuperarNumeroConta();
+		System.out.println("Seu saldo atual é: " + controle.recuperarSaldo(numeroConta));
 	}
 
 	private void criarConta() {
