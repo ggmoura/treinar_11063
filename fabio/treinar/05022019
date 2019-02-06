@@ -69,7 +69,7 @@ entao deve estar no inicio da classe
   Antes de qualquer interface o bom programador coloca i antes do nome da interface
   tipo: iProduto;
   
-  assinatura:
+  assinatura://
   
   public interface IProduto{
   	//todo metodo e atributo ja e por padrao, publico e estatico
