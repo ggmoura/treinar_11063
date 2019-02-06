@@ -60,6 +60,10 @@ public class BancoControle {
 		this.criarConta(nomeCliente, numeroConta, cpf);
 		((ContaSalario) storage.getConta()).setDiaDepositoSalario(diaDepositoSalario);
 	}
+	
+	public void criarContaInvestimento(String nomeCliente, Integer numeroConta, Long cpf) {
+		this.criarConta(nomeCliente, numeroConta, cpf);
+	}
 
 	public void alterarTaxaRendimento(Float taxaRendimento) {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
@@ -80,5 +84,5 @@ public class BancoControle {
 			p.creditar();
 		}
 	}
-	
+
 }
