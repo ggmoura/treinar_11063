@@ -1,9 +1,0 @@
-aula 06022019
-
-
-array 
-int[] idades = new int[10];
-int[] numerosPar = {0,2,4,6,8,10,12};
-
- NEW nesse caso nao instancia objeto apenas cria referencias de memoria para uso do array
-
