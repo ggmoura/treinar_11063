@@ -1,8 +1,61 @@
 aula 07022019
 
-=======   ENUM  ======
+maive.
+
 
 metodos padroes em object 
 	ToString() retorna uma string de um determinado objeto na forma de texto.
-	HashCode() 
-	equals()   comparar objetos
+	
+	
+	HashCode() - e o metodo que transforma o objeto em um numero para ser comparado com outro e identificar uma falha
+	de tamanho 
+	alt+shift+s  
+	
+	
+	
+	equals()   comparar objetos - o equals da classe objetc muitas vezes nao atende a regra de nogocio entao 
+	as vezes e preciso reescrever o equals dentro da classe, ver overide de equals();
+	
+	
+Classe anonima - usada para implementar interfaces é porque se cria uma classe abstrata mas em algum ponto 
+é necessario instanciar ela, mas classes abstratas nao sao implementaveis. Nesse caso java da a opcao de criar uma 
+instancia dessa classe porem é necessario implementar todos os metodos dessa clase novamente (sobrescrita dos metodos);
+
+sexemplo de classes deivadas de uma interface como classe anonima
+o objeto C é implementado como objeto anonimo
+
+Iclick c = new Iclick(){
+	public void click(){
+	//todo
+	}
+}	
+
+tratarClick(c){
+	c.click();
+}
+
+
+No projeto do banco inter como exercicio criar um metodo que verifica se o usuario ja tem essa conta, se o usuario 
+digitar uma que ja existe pedir pra digitar novamente outro numero.
+
+
+enum - tipo de dado que determina um dominio discreto 
+(que pode ser mensurado, que e determinado tipo pesoa fisica e juridica)
+que quando e instanciado e nao pode ser alterado
+
+como o enum é uma constante deve ser escrito em letras maiusculas
+exemplo: tipoPessoa 
+
+public enum TipoPessoa{
+	FISICA,JURIDICA
+}
+
+quando se quer pegar uma referencia do enum a partir de uma string usar Nomeenum.valueOf(StringAConsultar)
+exempo: 
+TipoPessoa t = TipoPessoa.valueOf("fisica");
+
+ 
+
+
+
+
