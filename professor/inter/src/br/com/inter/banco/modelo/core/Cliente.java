@@ -4,6 +4,7 @@ public class Cliente {
 
 	private String nomeCliente;
 	private Long cpf;
+	private TipoPessoa tipoPessoa;
 
 	public String getNomeCliente() {
 		return nomeCliente;
