@@ -8,6 +8,7 @@ public class Principal {
 		TelaMenu menu = new TelaMenu();
 		menu.iniciarMenu();
 		System.out.println("Sistema finalizou....");
+		System.out.println("Luiz Otávio");
 	}
 	
 }
