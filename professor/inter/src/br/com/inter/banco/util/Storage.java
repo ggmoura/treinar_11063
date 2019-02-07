@@ -23,9 +23,18 @@ public class Storage {
 	}
 	
 	public void adicionarConta(Conta conta) {
-		if (index < contas.length) {
-			this.contas[this.index++] = conta;
+		if (index >= contas.length) {
+			contas = dobrarCapacidadeContas();
 		}
+		this.contas[this.index++] = conta;
+	}
+	
+	public Conta[] dobrarCapacidadeContas() {
+		Conta[] newArray = new Conta[contas.length * 2];
+		for (int i = 0; i < contas.length; i++) {
+			newArray[i] = contas[i];
+		}
+		return newArray;
 	}
 
 	public Conta[] getContas() {
