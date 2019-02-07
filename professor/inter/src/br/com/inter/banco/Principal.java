@@ -6,7 +6,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		TelaMenu menu = new TelaMenu();
-		menu.iniciarMenu();
+		menu.iniciarMenu();//
 		System.out.println("Sistema finalizou....");
 	}
 	
