@@ -4,12 +4,8 @@ public class Cliente {
 
 	private String nomeCliente;
 	private Long cpf;
-<<<<<<< HEAD
-	
-=======
 	private TipoPessoa tipoPessoa;
 
->>>>>>> refs/remotes/origin/master
 	public String getNomeCliente() {
 		return nomeCliente;
 	}
