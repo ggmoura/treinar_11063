@@ -53,7 +53,7 @@ public class BancoControle {
 		storage.adicionarConta(conta);
 	}
 
-	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf, Float taxaRendimento) {
+	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf) {
 		ContaPoupanca conta = new ContaPoupanca();
 		this.criarConta(conta, nomeCliente, numeroConta, cpf);
 		storage.adicionarConta(conta);
