@@ -22,11 +22,18 @@ public class Storage {
 		return instance;
 	}
 	
+<<<<<<< HEAD
 	public Conta[] dobrarCapacidadeArray() {
 		Conta[] newArray = new Conta[contas.length * 2];
 		for (int i = 0; i < contas.length; i++) {
 			newArray[i] = contas[i];
+=======
+	public void adicionarConta(Conta conta) {
+		if (index >= contas.length) {
+			contas = dobrarCapacidadeContas();
+>>>>>>> refs/remotes/origin/master
 		}
+<<<<<<< HEAD
 		return newArray;
 	}	
 
@@ -35,6 +42,17 @@ public class Storage {
 			contas = dobrarCapacidadeArray();
 		}
 		this.contas[this.index++] = conta;
+=======
+		this.contas[this.index++] = conta;
+	}
+	
+	public Conta[] dobrarCapacidadeContas() {
+		Conta[] newArray = new Conta[contas.length * 2];
+		for (int i = 0; i < contas.length; i++) {
+			newArray[i] = contas[i];
+		}
+		return newArray;
+>>>>>>> refs/remotes/origin/master
 	}
 
 	public Conta[] getContas() {
@@ -61,5 +79,4 @@ public class Storage {
 		}
 		return conta;
 	}
-
 }

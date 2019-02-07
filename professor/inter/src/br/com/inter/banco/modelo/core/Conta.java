@@ -5,7 +5,7 @@ public abstract class Conta {
 	private Integer numero;
 	private Double saldo;
 	private Cliente cliente;
-	
+
 	public Conta() {
 		this.saldo = 0.0;
 	}
@@ -15,11 +15,11 @@ public abstract class Conta {
 	public Double consultarSaldo() {
 		return this.saldo;
 	}
-	
+
 	public void sacar(Double valor) {
 		setSaldo(getSaldo() - valor);
 	}
-	
+
 	public Integer getNumero() {
 		return numero;
 	}
@@ -75,6 +75,4 @@ public abstract class Conta {
 //		return this.numero.equals(other.numero);
 	
 //	}
-	
-	
 }

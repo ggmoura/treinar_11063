@@ -46,6 +46,13 @@ public class Pessoa {
 		return temp;
 	}
 	
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName() + " = " + this.nome + " " + this.idade;
+	}
 	
-	
+	@Override
+	public boolean equals(Object arg0) {
+		return super.equals(arg0);
+	}
 }
