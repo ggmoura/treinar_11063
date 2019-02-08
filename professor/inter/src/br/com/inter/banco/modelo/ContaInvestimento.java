@@ -4,17 +4,17 @@ import br.com.inter.banco.modelo.core.Conta;
 import br.com.inter.banco.modelo.core.IProdutoPagavel;
 import br.com.inter.banco.modelo.core.IProdutoRentavel;
 
-public class ContaInvestimento extends Conta implements IProdutoRentavel, IProdutoPagavel {
+public class ContaInvestimento extends Conta implements IProdutoRentavel<Integer>, IProdutoPagavel<Integer> {
 
 	private Integer id;
 	
 	@Override
-	public Object getId() {
+	public Integer getId() {
 		return id;
 	}
 	
 	@Override
-	public void setId(Object id) {
+	public void setId(Integer id) {
 		this.id = (Integer) id;
 	}
 

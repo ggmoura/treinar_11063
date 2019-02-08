@@ -3,7 +3,7 @@ package br.com.inter.banco.modelo;
 import br.com.inter.banco.modelo.core.Conta;
 import br.com.inter.banco.modelo.core.IProdutoRentavel;
 
-public class ContaPoupanca extends Conta implements IProdutoRentavel {
+public class ContaPoupanca extends Conta implements IProdutoRentavel<Long> {
 
 	private Long id;
 	private static Float taxaRendimento;
@@ -13,12 +13,12 @@ public class ContaPoupanca extends Conta implements IProdutoRentavel {
 	}
 
 	@Override
-	public Object getId() {
+	public Long getId() {
 		return id;
 	}
 	
 	@Override
-	public void setId(Object id) {
+	public void setId(Long id) {
 		this.id = (Long) id;
 	}
 	
