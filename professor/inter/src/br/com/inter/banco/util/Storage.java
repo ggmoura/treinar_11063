@@ -7,8 +7,8 @@ public class Storage {
 	private static Storage instance;
 	private Conta[] contas;
 	private int index;
-	private final int QUANTIDADE_CONTAS = 3;
-
+	private final int QUANTIDADE_CONTAS = 10;
+	
 	private Storage() {
 		super();
 		contas = new Conta[QUANTIDADE_CONTAS];
@@ -21,22 +21,13 @@ public class Storage {
 	public static Storage getInstance() {
 		return instance;
 	}
-
+	
 	public void adicionarConta(Conta conta) {
 		if (index < contas.length) {
-			contas = dobrarCapacidadeConta();
+			this.contas[this.index++] = conta;
 		}
-	this.contas[this.index++] = conta;
 	}
-	public Conta[] dobrarCapacidadeConta() {
-		Conta[] newArray = new Conta[contas.length *2];
-		for (int i = 0; i < contas.length; i++) {
-			newArray[i] = contas [i];
-		}
-		return newArray;
-	
-	}
-	
+
 	public Conta[] getContas() {
 		int qtdContas = 0;
 		for (int i = 0; i < contas.length; i++) {
