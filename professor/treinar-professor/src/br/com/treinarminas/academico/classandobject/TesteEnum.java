@@ -2,7 +2,12 @@ package br.com.treinarminas.academico.classandobject;
 
 public class TesteEnum {
 
+	
 	public static void main(String[] args) {
+		
+		
+		
+		
 		DiaSemana dia = DiaSemana.SEGUNDA_FEIRA;
 		
 		System.out.println(dia);
@@ -19,7 +24,16 @@ public class TesteEnum {
 			System.out.println("Dia: " + dias[i].ordinal() + " = " + dias[i]);
 		}
 		
-		System.out.println("Ordinal Quinta Feira: " + DiaSemana.QUINTA_FEIRA.ordinal());
+		MetodosParaEnum M = new MetodosParaEnum();
+		for (int i = 0; i < dias.length; i++) {			
+			System.out.println("O dia "+ dias[i].ordinal()+ " da semana é:"+ M.RetornaDiaSemana(i));
+			System.out.println("O dia "+ dias[i].ordinal()+ " da semana é fim de semana?:"+ M.RetornaDiaSemana(i).getFinalDeSemana());
+		}
+		
+
+		
+		
+		
 		
 	}
 
