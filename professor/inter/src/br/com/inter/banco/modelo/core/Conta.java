@@ -58,7 +58,7 @@ public abstract class Conta {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (getClass().getSuperclass() != obj.getClass().getSuperclass())
 			return false;
 		Conta other = (Conta) obj;
 		if (numero == null) {
