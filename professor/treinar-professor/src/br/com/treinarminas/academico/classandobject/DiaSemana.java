@@ -2,6 +2,7 @@ package br.com.treinarminas.academico.classandobject;
 
 public enum DiaSemana {
 
+	
 	SEGUNDA_FEIRA,
 	TERCA_FEIRA,
 	QUARTA_FEIRA,
@@ -9,5 +10,6 @@ public enum DiaSemana {
 	SEXTA_FEIRA,
 	SABADO,
 	DOMINGO
+
 
 }
