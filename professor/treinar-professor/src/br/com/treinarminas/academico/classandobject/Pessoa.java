@@ -1,18 +1,24 @@
 package br.com.treinarminas.academico.classandobject;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
 
 	public String nome;
-	int idade;
-	char sexo;
-	int numeroPassoaDados;
-	int caloriasPerdidas;
-	Endereco endereco;
-	int cpf;
+	public int idade;
+	public char sexo;
+	public int numeroPassoaDados;
+	public int caloriasPerdidas;
+	public Endereco endereco;
+	public int cpf;
 
 	public Pessoa(String nome, char sexo) {
 		this(nome);
 		this.sexo = sexo;
+	}
+	
+	public Pessoa(String nome, int cpf, int idade) {
+		this(nome);
+		this.cpf = cpf;
+		this.idade = idade;
 	}
 	
 	public Pessoa(String nome, int cpf) {
@@ -54,29 +60,34 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + " = " + this.nome + " " + this.idade;
+		return this.getClass().getSimpleName() + " = " + this.nome + " " + this.idade + " " + this.cpf;
 	}
-//
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + cpf;
-//		return result;
-//	}
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Pessoa other = (Pessoa) obj;
-//		if (cpf != other.cpf)
-//			return false;
-//		return true;
-//	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + cpf;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pessoa other = (Pessoa) obj;
+		if (cpf != other.cpf)
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compareTo(Pessoa o) {
+		return this.nome.compareTo(o.nome);
+	}
 
 }
