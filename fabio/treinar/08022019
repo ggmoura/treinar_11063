@@ -1,0 +1,62 @@
+Aula 08022019
+
+
+Aula sobre Lista
+
+
+Collection {
+			List - Aceita elementos repetido e mantem  o indice da inserção
+					Quando a operacao preponderante é insercao rapida porque todo dado que chega e 
+					colocado na ultima posicao; Exemplo: chagada de informacao rapida de uma operadora de rastreador de carro
+			
+			Set  - Nao aceita elementos repetidos e nao mantem a ordem da inserção
+					quando a operacao preponderante é a leitura rapida porque na insercao ele preocupa
+					com o indice que o dados sera guardado: Exemplo tabuleiro de bingo
+					
+					
+			Vantagens do set: Como nao preserva o indice indicado pela insercao ele entrega o que foi insrido mais 
+			rapido por que é ele que gerencia o indicie e com isso o rash e feito mais rapido.
+			
+			Vantagens do list - e bom quando faz varias insercoes e faz poucas operacoes de pesquisa porque a entrega de respostas é mais
+			lenta e necessita saber o indice;		
+			
+			
+				
+			Queue - mesma caracteristica da list porem existe um metodo de sincronia porque permite duas "pessoas"
+			utilizalo ao mesmo tempo
+			
+			Map
+			}
+			
+			package-info.java e um comentario do java a nivel de pacote. Serve para documentar alguma parte do codigo
+			
+			
+			comando foreach() muito usado em colecoes
+			
+			
+			
+			========= GENERICS - existe em tempo de programacao, na execucao é criado varias copias do tipo desejado =====
+			
+			List<Pessoa> - O que esta dentro da tag tipa o list criado para que o formato da lista que for criado seja
+			somenta Pessoa neste exemplo, sem a tag ele instacia uma lista que implementa de objet e ai abre um leque muito
+			grande para implentacao e toda hora que precisa usar a lista precisa de um cast, com a tipagem nao precisa mais
+			do cast.
+			
+			E como se fosse criado uma collection nova somente para o list ou objeto que foi tipado 
+			pode ser list, pode ser set et..
+			
+			set<Pessoa>
+ 
+ 
+ Ver reescrita de hascode e equals
+ 
+ na implementacao do generic quando nao interessa a implementacao de retorno
+ 
+ pode usar ? exemplo; 
+ Iproduto<?>
+ 
+ 			
+			
+			
+			
+			
