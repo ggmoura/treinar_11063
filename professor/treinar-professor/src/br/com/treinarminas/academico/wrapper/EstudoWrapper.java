@@ -17,7 +17,7 @@ public class EstudoWrapper {
 		
 		Character a = 'à';
 		Character b = 'à';
-		
+		System.out.println("b");
 		System.out.println(a == b);
 		
 	}
