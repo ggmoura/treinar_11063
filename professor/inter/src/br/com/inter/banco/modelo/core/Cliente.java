@@ -22,4 +22,12 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
+	public TipoPessoa getTipoPessoa() {
+		return tipoPessoa;
+	}
+
+	public void setTipoPessoa(TipoPessoa tipoPessoa) {
+		this.tipoPessoa = tipoPessoa;
+	}
+
 }

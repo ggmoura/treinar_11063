@@ -80,7 +80,7 @@ public class BancoControle {
 		Conta[] contas = storage.getContas();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] instanceof IProdutoPagavel) {
-				IProdutoPagavel p = (IProdutoPagavel) contas[i];
+				IProdutoPagavel<?> p = (IProdutoPagavel<?>) contas[i];
 				p.cobrar();
 			}
 		}
@@ -90,7 +90,7 @@ public class BancoControle {
 		Conta[] contas = storage.getContas();
 		for (int i = 0; i < contas.length; i++) {
 			if (contas[i] instanceof IProdutoRentavel) {
-				IProdutoRentavel p = (IProdutoRentavel) contas[i];
+				IProdutoRentavel<?> p = (IProdutoRentavel<?>) contas[i];
 				p.creditar();
 			}
 		}

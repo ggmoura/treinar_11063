@@ -1,10 +1,10 @@
 package br.com.inter.banco.modelo.core;
 
 //TODO Aula generics
-public interface IProduto {
+public interface IProduto<T> {
 
-	Object getId();
+	T getId();
 	
-	void setId(Object id);
+	void setId(T id);
 
 }
