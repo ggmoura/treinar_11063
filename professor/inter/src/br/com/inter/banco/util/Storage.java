@@ -1,17 +1,18 @@
 package br.com.inter.banco.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.inter.banco.modelo.core.Conta;
 
 public class Storage {
 
 	private static Storage instance;
-	private Conta[] contas;
-	private int index;
-	private final int QUANTIDADE_CONTAS = 10;
+	private List<Conta> contas;
 	
 	private Storage() {
 		super();
-		contas = new Conta[QUANTIDADE_CONTAS];
+		contas = new ArrayList<>();
 	}
 
 	static {
@@ -23,34 +24,25 @@ public class Storage {
 	}
 	
 	public void adicionarConta(Conta conta) {
-		if (index < contas.length) {
-			this.contas[this.index++] = conta;
-		}
+		this.contas.add(conta);
 	}
 
 	public Conta[] getContas() {
-		int qtdContas = 0;
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] != null) {
-				qtdContas++;
-			}
-		}
-		Conta[] contasPreenchidas = new Conta[qtdContas];
-		for (int i = 0; i < contasPreenchidas.length; i++) {
-			contasPreenchidas[i] = this.contas[i];
-		}
-		return contasPreenchidas;
+		return (Conta[]) contas.toArray();
 	}
 
 	public Conta getConta(Integer numeroConta) {
-		Conta conta = null;
-		for (int i = 0; i < contas.length; i++) {
-			Conta c = contas[i];
-			if (c != null && c.getNumero().equals(numeroConta)) {
-				conta = c;
+		Conta c = new Conta() {//Classe Anoima
+			@Override
+			public void depositar(Double valor) {
+				//stub
 			}
-		}
-		return conta;
+		};
+		c.setNumero(numeroConta);
+		return contas.get(contas.indexOf(c));
 	}
-
+	
+	public Conta getConta(Conta conta) {
+		return contas.get(contas.indexOf(conta));
+	}
 }

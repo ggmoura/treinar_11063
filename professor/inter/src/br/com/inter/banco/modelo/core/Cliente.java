@@ -4,6 +4,7 @@ public class Cliente {
 
 	private String nomeCliente;
 	private Long cpf;
+	private TipoPessoa tipoPessoa;
 
 	public String getNomeCliente() {
 		return nomeCliente;
@@ -19,6 +20,14 @@ public class Cliente {
 
 	public void setCpf(Long cpf) {
 		this.cpf = cpf;
+	}
+
+	public TipoPessoa getTipoPessoa() {
+		return tipoPessoa;
+	}
+
+	public void setTipoPessoa(TipoPessoa tipoPessoa) {
+		this.tipoPessoa = tipoPessoa;
 	}
 
 }
