@@ -1,1 +1,12 @@
 aula 11022019
+
+toda interface que tem apenas um metodo a partir da java 8 é considerada interface funcional
+
+expressoes lambda java 8 tutorialspoint
+
+api de stream do java 8 tutorialspoint
+
+Estrutura de map - estrutura de dados - java.util java 8
+
+Map<Character  , List<Pesoa>> PessoasMao = HashMap<>();
+tabela de hash
