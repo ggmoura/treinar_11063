@@ -81,8 +81,10 @@ public class TelaMenu {
 			System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo(numeroConta));
 		} catch (SaldoInsuficienteException e) {
 			System.out.println("Saldo insuficiente! Saldo atual: " + e.getSaldoAtual());
+			e.printStackTrace();
 		} catch (HoraFuncionamenoException e) {
 			System.out.println("Voce nao pode sacar neste horario");
+			e.printStackTrace();
 		}
 	}
 
