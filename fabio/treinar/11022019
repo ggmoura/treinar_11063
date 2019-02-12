@@ -10,3 +10,44 @@ Estrutura de map - estrutura de dados - java.util java 8
 
 Map<Character  , List<Pesoa>> PessoasMao = HashMap<>();
 tabela de hash
+
+
+
+=-=    Tratamento de excessao  ==   =
+
+-> Tipos: 
+	Excessoes em tempo de desenvolvimento, que no caso a IDE mostra para o programador.
+	Excessoes em tempo de execução.
+	
+	Excessoes chequed e unchequed;
+	
+	classe troble = classe pai de todas as excessoes que se dividem em exception e error;
+	
+	
+	excessao de error= E o tipo de excessoes que a JVM trata dela, enquanto programador so se usa a classe exception
+	
+	
+	excessao que retorna para funcao chamadorea = 
+	
+	throw new Exception(); Se na assinatura do metodo nao tiver o restante: throws Exception o metodo vai mandando 
+	a excessao pra cima ate alguem ou algum metodo tratar alguma excessao. 
+	 Se tiver throws Exception o metodo chamador tem que tratar com o tratamento: 
+	 
+	 try{
+	 }catch{
+	 }
+	 
+	 Excessoes do tipo Exception é obrigado passar pra cima ou tratar
+	 tipo da excesao: 
+	 
+	 Chequed = RuntimeException
+	 Unchequed = Exception
+	 
+	 throws Exception  - Subir a excessao para o metodo chamador
+	 
+	 
+	 
+	 
+	  
+	
+	 
