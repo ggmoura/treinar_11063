@@ -7,7 +7,7 @@ public class CriarArquivo {
 
 	public static void main(String[] args) throws Exception {
 		String content = "Hello World !!";
-		Files.write(Paths.get("output.txt"), content.getBytes());
+		Files.write(Paths.get("data.txt"), content.getBytes());
 	}
 
 }
