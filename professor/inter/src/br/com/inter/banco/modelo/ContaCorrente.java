@@ -31,6 +31,8 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 				limiteCredito = limiteCredito - (valor - getSaldo());
 				setSaldo(0d);
 			}
+		} else {
+			throw new SaldoInsuficienteException();
 		}
 	}
 
@@ -82,9 +84,7 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 		try {
 			sacar(taxaManutencao);
 		} catch (SaldoInsuficienteException | HoraFuncionamenoException e) {
-			System.out.println("Mandar email falando que nao deu pra sacar ");
-		} catch (Exception e) {
-			System.out.println("Por algum motivo indeterminado nao foi possivel tarifar a conta");
+			System.out.println("Enviar email falando que nao conseguiu cobra tarifa da conta " + getId());
 		}
 	}
 
