@@ -1,2 +1,15 @@
 aula 12022019
 
+
+try {
+
+}catch{
+}finally{  este é usado para finalizar algum objeto que precisa ser finalizado como um thred por exemplo
+}
+
+
+tbm existe o try with resources - elimina alguns recursos do try catch e ja finaliza um objeto que precisa ser finalizados
+
+
+
+

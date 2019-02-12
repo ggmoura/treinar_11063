@@ -3,17 +3,17 @@ package br.com.inter.banco.modelo;
 import br.com.inter.banco.modelo.core.Conta;
 import br.com.inter.banco.modelo.core.IProduto;
 
-public class ContaSalario extends Conta implements IProduto {
+public class ContaSalario extends Conta implements IProduto<Long> {
 
 	private Long id;
 	
 	@Override
-	public Object getId() {
+	public Long getId() {
 		return id;
 	}
 	
 	@Override
-	public void setId(Object id) {
+	public void setId(Long id) {
 		this.id = (Long) id;
 	}
 	

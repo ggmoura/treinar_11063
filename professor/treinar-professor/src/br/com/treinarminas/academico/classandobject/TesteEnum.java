@@ -17,7 +17,7 @@ public class TesteEnum {
 		DiaSemana domingo = DiaSemana.valueOf(diaStr);
 		
 		System.out.println(domingo);
-		
+
 		DiaSemana[] dias = DiaSemana.values();
 		System.out.println();
 		for (int i = 0; i < dias.length; i++) {
@@ -34,6 +34,14 @@ public class TesteEnum {
 		
 		
 		
+		
+		
+		System.out.println(dias[6].getFinalDeSemana());
+		System.out.println(DiaSemana.SEGUNDA_FEIRA.getFinalDeSemana());
+		
+		
+		System.out.println(DiaSemana.SEGUNDA_FEIRA.ehDiaDeFarra());
+		System.out.println(DiaSemana.DOMINGO.ehDiaDeFarra());
 		
 	}
 
