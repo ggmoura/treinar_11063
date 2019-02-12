@@ -13,3 +13,16 @@ tbm existe o try with resources - elimina alguns recursos do try catch e ja fina
 
 
 
+serialversionID para serializar classes
+
+
+ =======   ====gravação de arquivos  ===   ========
+ 
+ api i/o java 8
+ 
+ java.io
+ ver: 
+ https://www.caelum.com.br/apostila-java-orientacao-objetos/pacote-java-io/ 
+ 
+ nova api files é java.nio valida para java 8
+ 
