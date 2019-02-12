@@ -2,8 +2,6 @@ package br.com.treinarminas.academico.exception;
 
 import java.util.Scanner;
 
-import com.sun.xml.internal.stream.Entity.ScannedEntity;
-
 public class TesteException {
 
 	public static void main(String[] args) {
