@@ -84,8 +84,7 @@ public class BancoControle {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 		
 		try {
-			String content = String.valueOf(taxaRendimento) ;
-			Files.write(Paths.get("taxa-rendimento-reginaldo.txt"), content.getBytes());		
+			Files.write(Paths.get("taxa-rendimento-reginaldo.txt"), taxaRendimento.toString().getBytes());		
 		} catch (Exception e) {
 			
 		}
