@@ -46,6 +46,12 @@ tabela de hash
 	 throws Exception  - Subir a excessao para o metodo chamador
 	 
 	 
+	 SerialVersionUID = 1L Serve para serializar a montagem do array de bytecode quando se vai transferir os .class para 
+	 rodar em outra JVM, para ficar mais facil a JVM de destino pegar o array de byte remontar o projeto na memoria. 
+	 É um tipo de maneira de ensina as JVM's trabalhar. Alguns objetos nao podem ser serializados. Mas os que pode ser
+	 serializados é bom fazer para facilitar o trabalhos da JVM.
+	 
+	 
 	 
 	 
 	  
