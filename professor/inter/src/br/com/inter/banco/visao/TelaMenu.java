@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 import br.com.inter.banco.controle.BancoControle;
 import br.com.inter.banco.modelo.ContaPoupanca;
+import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
 import br.com.inter.banco.modelo.core.IConstante;
+import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
 
 //TODO - Criar schedule para cobrar e creditar as contas
 public class TelaMenu {
@@ -74,8 +76,14 @@ public class TelaMenu {
 		final Integer numeroConta = recuperarNumeroConta();
 		System.out.print("Qual o valor você quer sacar: ");
 		final Double valor = leitor.nextDouble();
-		controle.sacar(numeroConta, valor);
-		System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo(numeroConta));
+		try {
+			controle.sacar(numeroConta, valor);
+			System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo(numeroConta));
+		} catch (SaldoInsuficienteException e) {
+			System.out.println("Saldo insuficiente! Saldo atual: " + e.getSaldoAtual());
+		} catch (HoraFuncionamenoException e) {
+			System.out.println("Voce nao pode sacar neste horario");
+		}
 	}
 
 	private void depositar() {
