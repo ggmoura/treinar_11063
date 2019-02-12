@@ -1,7 +1,9 @@
 package br.com.inter.banco.modelo;
 
 import br.com.inter.banco.modelo.core.Conta;
+import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
 import br.com.inter.banco.modelo.core.IProdutoPagavel;
+import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
 
 public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 
@@ -21,7 +23,7 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 	}
 	
 	@Override
-	public void sacar(Double valor) {
+	public void sacar(Double valor) throws SaldoInsuficienteException, HoraFuncionamenoException {
 		if (getSaldo() + limiteCredito >= valor) {
 			if (getSaldo() >= valor) {
 				super.sacar(valor);
@@ -77,7 +79,13 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 
 	@Override
 	public void cobrar() {
-		sacar(taxaManutencao);
+		try {
+			sacar(taxaManutencao);
+		} catch (SaldoInsuficienteException | HoraFuncionamenoException e) {
+			System.out.println("Mandar email falando que nao deu pra sacar ");
+		} catch (Exception e) {
+			System.out.println("Por algum motivo indeterminado nao foi possivel tarifar a conta");
+		}
 	}
 
 }

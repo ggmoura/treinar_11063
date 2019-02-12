@@ -6,8 +6,10 @@ import br.com.inter.banco.modelo.ContaPoupanca;
 import br.com.inter.banco.modelo.ContaSalario;
 import br.com.inter.banco.modelo.core.Cliente;
 import br.com.inter.banco.modelo.core.Conta;
+import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
 import br.com.inter.banco.modelo.core.IProdutoPagavel;
 import br.com.inter.banco.modelo.core.IProdutoRentavel;
+import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
 import br.com.inter.banco.util.Storage;
 
 public class BancoControle {
@@ -28,7 +30,7 @@ public class BancoControle {
 		c.depositar(valor);
 	}
 
-	public void sacar(Integer numeroConta, Double valor) {
+	public void sacar(Integer numeroConta, Double valor) throws SaldoInsuficienteException, HoraFuncionamenoException {
 		Conta c = storage.getConta(numeroConta);
 		if (c != null) {
 			c.sacar(valor);
