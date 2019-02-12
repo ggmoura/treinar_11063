@@ -1,5 +1,10 @@
 package br.com.inter.banco.controle;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+
 import br.com.inter.banco.modelo.ContaCorrente;
 import br.com.inter.banco.modelo.ContaInvestimento;
 import br.com.inter.banco.modelo.ContaPoupanca;
@@ -57,6 +62,7 @@ public class BancoControle {
 
 	public void criarContaPoupanca(String nomeCliente, Integer numeroConta, Long cpf) {
 		ContaPoupanca conta = new ContaPoupanca();
+		
 		this.criarConta(conta, nomeCliente, numeroConta, cpf);
 		storage.adicionarConta(conta);
 	}
@@ -76,6 +82,14 @@ public class BancoControle {
 
 	public void alterarTaxaRendimento(Float taxaRendimento) {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
+		
+		try {
+			String content = String.valueOf(taxaRendimento) ;
+			Files.write(Paths.get("taxa-rendimento-reginaldo.txt"), content.getBytes());		
+		} catch (Exception e) {
+			
+		}
+		
 	}
 
 	public void tarifar() {
