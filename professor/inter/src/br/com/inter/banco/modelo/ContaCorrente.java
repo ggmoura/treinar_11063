@@ -31,6 +31,8 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 				limiteCredito = limiteCredito - (valor - getSaldo());
 				setSaldo(0d);
 			}
+		} else {
+			throw new SaldoInsuficienteException();
 		}
 	}
 
