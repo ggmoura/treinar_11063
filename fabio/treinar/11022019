@@ -21,7 +21,7 @@ tabela de hash
 	
 	Excessoes chequed e unchequed;
 	
-	classe troble = classe pai de todas as excessoes que se dividem em exception e error;
+	classe Throwable = classe pai de todas as excessoes que se dividem em exception e error;
 	
 	
 	excessao de error= E o tipo de excessoes que a JVM trata dela, enquanto programador so se usa a classe exception
