@@ -26,3 +26,22 @@ serialversionID para serializar classes
  
  nova api files é java.nio valida para java 8
  
+ StringBuilder = usado quando nao esta em alguma thread
+ 
+ StringBuffer = Usado quando esta em thread
+ 
+ soap - manda por xml
+ rest - manda por json
+ 
+ api Gson api do google para json
+ 
+ api Jackson
+ 
+ gson java download
+ 
+ 
+ 
+ 
+ 
+ 
+ 
