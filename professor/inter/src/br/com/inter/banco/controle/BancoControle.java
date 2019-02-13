@@ -1,5 +1,10 @@
 package br.com.inter.banco.controle;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import br.com.inter.banco.modelo.ContaCorrente;
 import br.com.inter.banco.modelo.ContaInvestimento;
 import br.com.inter.banco.modelo.ContaPoupanca;
@@ -10,6 +15,7 @@ import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
 import br.com.inter.banco.modelo.core.IProdutoPagavel;
 import br.com.inter.banco.modelo.core.IProdutoRentavel;
 import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
+import br.com.inter.banco.util.Constante;
 import br.com.inter.banco.util.Storage;
 
 public class BancoControle {
@@ -76,23 +82,28 @@ public class BancoControle {
 
 	public void alterarTaxaRendimento(Float taxaRendimento) {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
+		final Path path = Paths.get(Constante.MetaDado.PATH_TAXA_RENDIMENTO);
+		try {
+			Files.write(path, taxaRendimento.toString().getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void tarifar() {
-		Conta[] contas = storage.getContas();
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] instanceof IProdutoPagavel) {
-				IProdutoPagavel<?> p = (IProdutoPagavel<?>) contas[i];
+		for (Conta conta : storage.getContas()) {
+			if (conta instanceof IProdutoPagavel) {
+				IProdutoPagavel<?> p = (IProdutoPagavel<?>) conta;
 				p.cobrar();
 			}
 		}
 	}
 
 	public void creditar() {
-		Conta[] contas = storage.getContas();
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] instanceof IProdutoRentavel) {
-				IProdutoRentavel<?> p = (IProdutoRentavel<?>) contas[i];
+		for (Conta conta : storage.getContas()) {
+			if (conta instanceof IProdutoRentavel) {
+				IProdutoRentavel<?> p = (IProdutoRentavel<?>) conta;
 				p.creditar();
 			}
 		}
