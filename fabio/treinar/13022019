@@ -1,0 +1,6 @@
+aula 13022019
+
+api de serializacao - para transformar um app em objeto ou gravar um arquivo
+
+Maven - Serve para varias implementacoes uma delas é de centralizar bibliotecas de jar para 
+facilitar reutilizacao de codigo e compatibilizacao de api para sistemas operacionais diferentes
