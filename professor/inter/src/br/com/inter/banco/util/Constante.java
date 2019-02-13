@@ -4,6 +4,7 @@ public interface Constante {
 
 	interface MetaDado {
 		String PATH_TAXA_RENDIMENTO = "taxa-rendimento.inter";
+		String PATH_CONTAS = "contas.json";
 	}
 	
 }
