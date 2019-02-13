@@ -18,24 +18,4 @@ import br.com.inter.banco.util.Constante;
 
 public class TesteLibJson {
 
-	public static void main(String[] args) throws JsonIOException, IOException {
-		Gson gson = new GsonBuilder().create();
-		Conta c = new ContaPoupanca();
-		c.depositar(100d);
-		Cliente cliente = new Cliente();
-		cliente.setNomeCliente("Maria Sophia");
-		cliente.setCpf(55546265302l);
-		cliente.setTipoPessoa(TipoPessoa.FISICA);
-		c.setCliente(cliente);
-
-		gson.toJson(c, new FileWriter("contas.json"));
-		String jsonInString = gson.toJson(c);
-		final Path path = Paths.get(Constante.MetaDado.PATH_TAXA_RENDIMENTO);
-		try {
-			Files.write(path, jsonInString.getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 }
