@@ -1,5 +1,7 @@
 package br.com.inter.banco.modelo.core;
 
+import java.util.Random;
+
 public abstract class Conta {
 
 	private Integer numero;
@@ -16,8 +18,19 @@ public abstract class Conta {
 		return this.saldo;
 	}
 
-	public void sacar(Double valor) {
-		setSaldo(getSaldo() - valor);
+	public void sacar(Double valor) throws SaldoInsuficienteException, HoraFuncionamenoException {
+		
+		if (new Random().nextBoolean()) {//Define se estah na hora permitida para sacar
+			if (getSaldo() >= valor) {
+				setSaldo(getSaldo() - valor);
+			} else {
+				SaldoInsuficienteException ex = new SaldoInsuficienteException();
+				ex.setSaldoAtual(getSaldo());
+				throw ex;
+			}
+		} else {
+			throw new HoraFuncionamenoException();
+		}
 	}
 
 	public Integer getNumero() {
