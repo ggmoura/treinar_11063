@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 import br.com.inter.banco.controle.BancoControle;
 import br.com.inter.banco.modelo.ContaPoupanca;
+import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
 import br.com.inter.banco.modelo.core.IConstante;
+import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
 
 //TODO - Criar schedule para cobrar e creditar as contas
 public class TelaMenu {
@@ -44,6 +46,9 @@ public class TelaMenu {
 			case 7:
 				creditarLucro();
 				break;
+			case 8:
+				exibirTaxaRendimento();
+				break;
 
 			default:
 				System.out.println("Opção inválida!");
@@ -55,6 +60,12 @@ public class TelaMenu {
 		leitor.close();
 	}
 	
+	private void exibirTaxaRendimento() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("A taxa de rendimento atual é: ").append(ContaPoupanca.getTaxaRendimento());
+		System.out.println(sb);
+	}
+
 	private void creditarLucro() {
 		controle.creditar();
 	}
@@ -74,8 +85,16 @@ public class TelaMenu {
 		final Integer numeroConta = recuperarNumeroConta();
 		System.out.print("Qual o valor você quer sacar: ");
 		final Double valor = leitor.nextDouble();
-		controle.sacar(numeroConta, valor);
-		System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo(numeroConta));
+		try {
+			controle.sacar(numeroConta, valor);
+			System.out.println("Saque efetuado com sucesso, novo saldo: " + controle.recuperarSaldo(numeroConta));
+		} catch (SaldoInsuficienteException e) {
+			System.out.println("Saldo insuficiente! Saldo atual: " + e.getSaldoAtual());
+			e.printStackTrace();
+		} catch (HoraFuncionamenoException e) {
+			System.out.println("Voce nao pode sacar neste horario");
+			e.printStackTrace();
+		}
 	}
 
 	private void depositar() {
@@ -151,6 +170,7 @@ public class TelaMenu {
 				+ "5 - Definir taxa rendimento poupança\n\t"
 				+ "6 - Tarifar\n\t"
 				+ "7 - Creditar\n\t"
+				+ "8 - Exibir Taxa de Rendimento\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	

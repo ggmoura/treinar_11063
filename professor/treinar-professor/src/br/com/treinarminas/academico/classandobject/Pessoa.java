@@ -21,11 +21,6 @@ public class Pessoa implements Comparable<Pessoa> {
 		this.idade = idade;
 	}
 	
-	public Pessoa(String nome, int cpf, int idade, char sexo) {
-		this(nome, cpf, idade);
-		this.sexo = sexo;
-	}
-	
 	public Pessoa(String nome, int cpf) {
 		this(nome);
 		this.cpf = cpf;
