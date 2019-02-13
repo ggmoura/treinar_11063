@@ -41,6 +41,9 @@ serialversionID para serializar classes
  
  
  maven - Criar os projetos dentro desse cara para que ele busque os plugins necessarios 
+ 
+ -coreUI
+ -VScode
   
  
  
