@@ -46,6 +46,9 @@ public class TelaMenu {
 			case 7:
 				creditarLucro();
 				break;
+			case 8:
+				exibirTaxaRendimento();
+				break;
 
 			default:
 				System.out.println("Opção inválida!");
@@ -57,6 +60,12 @@ public class TelaMenu {
 		leitor.close();
 	}
 	
+	private void exibirTaxaRendimento() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("A taxa de rendimento atual é: ").append(ContaPoupanca.getTaxaRendimento());
+		System.out.println(sb);
+	}
+
 	private void creditarLucro() {
 		controle.creditar();
 	}
@@ -161,6 +170,7 @@ public class TelaMenu {
 				+ "5 - Definir taxa rendimento poupança\n\t"
 				+ "6 - Tarifar\n\t"
 				+ "7 - Creditar\n\t"
+				+ "8 - Exibir Taxa de Rendimento\n\t"
 				+ "0 - Sair\n\n==> ";
 	}
 	

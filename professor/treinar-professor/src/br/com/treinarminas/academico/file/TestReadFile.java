@@ -11,6 +11,7 @@ public class TestReadFile {
 		String fileName = "data.txt";
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 			stream.forEach(System.out::println);
+			//final String text = stream.findFirst().get();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
