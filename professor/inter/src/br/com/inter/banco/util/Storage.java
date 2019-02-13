@@ -27,8 +27,8 @@ public class Storage {
 		this.contas.add(conta);
 	}
 
-	public Conta[] getContas() {
-		return (Conta[]) contas.toArray();
+	public List<Conta> getContas() {
+		return contas;
 	}
 
 	public Conta getConta(Integer numeroConta) {

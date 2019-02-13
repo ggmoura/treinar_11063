@@ -92,20 +92,18 @@ public class BancoControle {
 	}
 
 	public void tarifar() {
-		Conta[] contas = storage.getContas();
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] instanceof IProdutoPagavel) {
-				IProdutoPagavel<?> p = (IProdutoPagavel<?>) contas[i];
+		for (Conta conta : storage.getContas()) {
+			if (conta instanceof IProdutoPagavel) {
+				IProdutoPagavel<?> p = (IProdutoPagavel<?>) conta;
 				p.cobrar();
 			}
 		}
 	}
 
 	public void creditar() {
-		Conta[] contas = storage.getContas();
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] instanceof IProdutoRentavel) {
-				IProdutoRentavel<?> p = (IProdutoRentavel<?>) contas[i];
+		for (Conta conta : storage.getContas()) {
+			if (conta instanceof IProdutoRentavel) {
+				IProdutoRentavel<?> p = (IProdutoRentavel<?>) conta;
 				p.creditar();
 			}
 		}
