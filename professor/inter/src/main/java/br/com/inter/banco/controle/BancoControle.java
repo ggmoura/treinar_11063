@@ -26,8 +26,9 @@ import br.com.inter.banco.util.Storage;
 public class BancoControle {
 
 	private Storage storage;
-	private static final Integer DELAY = 10 * 1000;
-	
+	private static final Integer DELAY = 5 * 60 * 1000;
+	private static final Integer INITIAL_DELAY = 10 * 1000;
+
 	public BancoControle() {
 		storage = Storage.getInstance();
 		iniciarRotinaCredito();
@@ -57,7 +58,7 @@ public class BancoControle {
 		cliente.setCpf(cpf);
 		conta.setCliente(cliente);
 	}
-	
+
 	public void criarContaCorrente(String nomeCliente, Integer numeroConta, Long cpf, Double limiteCredito,
 			Double taxaManutencao) {
 		final ContaCorrente conta = new ContaCorrente();
@@ -80,7 +81,7 @@ public class BancoControle {
 		conta.setDiaDepositoSalario(diaDepositoSalario);
 		storage.adicionarConta(conta);
 	}
-	
+
 	public void criarContaInvestimento(String nomeCliente, Integer numeroConta, Long cpf) {
 		ContaInvestimento conta = new ContaInvestimento();
 		this.criarConta(conta, nomeCliente, numeroConta, cpf);
@@ -95,29 +96,31 @@ public class BancoControle {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public CompletableFuture<String> tarifar() {
 		CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() {
-		    @Override
-		    public String get() {
-		        try {
-		        	for (Conta conta : storage.getContas()) {
+			@Override
+			public String get() {
+				Integer cont = 0;
+				Double total = 0d;
+				try {
+					for (Conta conta : storage.getContas()) {
 						if (conta instanceof IProdutoPagavel) {
 							IProdutoPagavel<?> p = (IProdutoPagavel<?>) conta;
-							p.cobrar();
+							total += p.cobrar();
+							cont += 1;
 						}
 					}
-		            TimeUnit.SECONDS.sleep(10);
-		        } catch (InterruptedException e) {
-		            throw new IllegalStateException(e);
-		        }
-		        return "As contas foram tarifadas";
-		    }
+					TimeUnit.SECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					throw new IllegalStateException(e);
+				}
+				return "Foram tarifadas " + cont.toString() + " Contas";
+			}
 		});
-		System.out.println("Vou tarifar as contas, pode continuar seu trabalho, "
-						 + "quando estiver pronto te falo");
+		System.out.println("Vou tarifar as contas, pode continuar seu trabalho, " + "quando estiver pronto te falo");
 		return future;
 	}
 
@@ -134,7 +137,7 @@ public class BancoControle {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void iniciarRotinaCredito() {
 		Timer t = new Timer();
 		t.schedule(new TimerTask() {
@@ -144,7 +147,7 @@ public class BancoControle {
 				creditar();
 				System.out.println("Terminei uma rotina de credito");
 			}
-		}, DELAY, DELAY);
+		}, INITIAL_DELAY, DELAY);
 	}
 
 }

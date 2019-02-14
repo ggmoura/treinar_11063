@@ -80,12 +80,15 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 	}
 
 	@Override
-	public void cobrar() {
+	public Double cobrar() {
+		Double valorCobrado = taxaManutencao;
 		try {
 			sacar(taxaManutencao);
 		} catch (SaldoInsuficienteException | HoraFuncionamenoException e) {
+			valorCobrado = 0d;
 			System.out.println("Enviar email falando que nao conseguiu cobra tarifa da conta " + getId());
 		}
+		return valorCobrado;
 	}
 
 }
