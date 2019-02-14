@@ -14,7 +14,7 @@ public class Storage {
 		super();
 		contas = new ArrayList<>();
 	}
-
+	
 	static {
 		instance = new Storage();
 	}

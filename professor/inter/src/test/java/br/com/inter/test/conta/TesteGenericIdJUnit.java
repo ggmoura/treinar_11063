@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.inter.banco.modelo.ContaCorrente;
 import br.com.inter.banco.modelo.ContaInvestimento;
 
 public class TesteGenericIdJUnit {

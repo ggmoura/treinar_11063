@@ -2,6 +2,8 @@ package br.com.inter.banco.visao;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import br.com.inter.banco.controle.BancoControle;
 import br.com.inter.banco.modelo.ContaPoupanca;
 import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
@@ -71,7 +73,15 @@ public class TelaMenu {
 	}
 
 	private void tarifarConta() {
-		controle.tarifar();
+//		try {
+//			String msg = controle.tarifar().get();
+//			System.out.println(msg);
+//		} catch (Exception e) {
+//		}
+//		
+		controle.tarifar().thenAccept(resp -> {
+			JOptionPane.showMessageDialog(null, resp, "Tarifação de contas", 1);
+		});
 	}
 
 	private void definirTaxaRendimento() {

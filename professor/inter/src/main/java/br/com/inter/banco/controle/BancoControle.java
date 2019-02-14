@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 import br.com.inter.banco.modelo.ContaCorrente;
 import br.com.inter.banco.modelo.ContaInvestimento;
@@ -21,9 +26,11 @@ import br.com.inter.banco.util.Storage;
 public class BancoControle {
 
 	private Storage storage;
+	private static final Integer DELAY = 10 * 1000;
 	
 	public BancoControle() {
 		storage = Storage.getInstance();
+		iniciarRotinaCredito();
 	}
 
 	public Double recuperarSaldo(Integer numeroConta) {
@@ -91,13 +98,27 @@ public class BancoControle {
 		
 	}
 
-	public void tarifar() {
-		for (Conta conta : storage.getContas()) {
-			if (conta instanceof IProdutoPagavel) {
-				IProdutoPagavel<?> p = (IProdutoPagavel<?>) conta;
-				p.cobrar();
-			}
-		}
+	public CompletableFuture<String> tarifar() {
+		CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() {
+		    @Override
+		    public String get() {
+		        try {
+		        	for (Conta conta : storage.getContas()) {
+						if (conta instanceof IProdutoPagavel) {
+							IProdutoPagavel<?> p = (IProdutoPagavel<?>) conta;
+							p.cobrar();
+						}
+					}
+		            TimeUnit.SECONDS.sleep(10);
+		        } catch (InterruptedException e) {
+		            throw new IllegalStateException(e);
+		        }
+		        return "As contas foram tarifadas";
+		    }
+		});
+		System.out.println("Vou tarifar as contas, pode continuar seu trabalho, "
+						 + "quando estiver pronto te falo");
+		return future;
 	}
 
 	public void creditar() {
@@ -107,6 +128,23 @@ public class BancoControle {
 				p.creditar();
 			}
 		}
+		try {
+			TimeUnit.SECONDS.sleep(3);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void iniciarRotinaCredito() {
+		Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				System.out.println("Executando rotina de credito");
+				creditar();
+				System.out.println("Terminei uma rotina de credito");
+			}
+		}, DELAY, DELAY);
 	}
 
 }
