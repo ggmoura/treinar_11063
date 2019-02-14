@@ -20,7 +20,7 @@ public class TesteGenericIdJUnit {
 	public void teste() {
 		ci.setId(10481);
 		//Integer idCI = (Integer) ci.getId();
-		Assert.assertEquals(ci.getId(), new Integer(678));
+		Assert.assertEquals(ci.getId(), new Integer(101));
 	}
 	
 }
