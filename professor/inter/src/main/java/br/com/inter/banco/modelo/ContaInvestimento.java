@@ -13,6 +13,7 @@ public class ContaInvestimento extends Conta implements IProdutoRentavel<Integer
 		return id;
 	}
 	
+	
 	@Override
 	public void setId(Integer id) {
 		this.id = (Integer) id;
@@ -24,8 +25,9 @@ public class ContaInvestimento extends Conta implements IProdutoRentavel<Integer
 	}
 
 	@Override
-	public void cobrar() {
+	public Double cobrar() {
 		System.out.println("cobrando");
+		return 10d;
 	}
 
 	@Override

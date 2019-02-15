@@ -22,6 +22,7 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 		this.id = (Long) id;
 	}
 	
+	
 	@Override
 	public void sacar(Double valor) throws SaldoInsuficienteException, HoraFuncionamenoException {
 		if (getSaldo() + limiteCredito >= valor) {
@@ -80,12 +81,13 @@ public class ContaCorrente extends Conta implements IProdutoPagavel<Long> {
 	}
 
 	@Override
-	public void cobrar() {
+	public Double cobrar() {
 		try {
 			sacar(taxaManutencao);
 		} catch (SaldoInsuficienteException | HoraFuncionamenoException e) {
 			System.out.println("Enviar email falando que nao conseguiu cobra tarifa da conta " + getId());
 		}
+		return taxaManutencao;
 	}
 
 }
