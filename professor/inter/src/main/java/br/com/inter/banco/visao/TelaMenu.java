@@ -80,7 +80,8 @@ public class TelaMenu {
 //		}
 //		
 		controle.tarifar().thenAccept(resp -> {
-			JOptionPane.showMessageDialog(null, resp, "Tarifação de contas", 1);
+//			JOptionPane.showMessageDialog(null, resp, "Tarifação de contas", 1);
+			System.out.println("teste");
 		});
 	}
 

@@ -26,7 +26,8 @@ import br.com.inter.banco.util.Storage;
 public class BancoControle {
 
 	private Storage storage;
-	private static final Integer DELAY = 10 * 1000;
+	private static final Integer DELAY =  5 * 60 * 1000;
+	private static final Integer INITIAL_DELAY = 10 * 1000;
 	
 	public BancoControle() {
 		storage = Storage.getInstance();
@@ -100,6 +101,7 @@ public class BancoControle {
 
 	public CompletableFuture<String> tarifar() {
 		CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() {
+			Integer cobranca;
 		    @Override
 		    public String get() {
 		        try {
@@ -107,15 +109,18 @@ public class BancoControle {
 						if (conta instanceof IProdutoPagavel) {
 							IProdutoPagavel<?> p = (IProdutoPagavel<?>) conta;
 							p.cobrar();
+							cobranca++;
 						}
 					}
 		            TimeUnit.SECONDS.sleep(10);
 		        } catch (InterruptedException e) {
 		            throw new IllegalStateException(e);
 		        }
-		        return "As contas foram tarifadas";
+		 
+		        return cobranca.toString() + "Contas foram tarifadas";
 		    }
 		});
+		
 		System.out.println("Vou tarifar as contas, pode continuar seu trabalho, "
 						 + "quando estiver pronto te falo");
 		return future;
@@ -144,7 +149,7 @@ public class BancoControle {
 				creditar();
 				System.out.println("Terminei uma rotina de credito");
 			}
-		}, DELAY, DELAY);
+		}, INITIAL_DELAY, DELAY);
 	}
 
 }
