@@ -22,7 +22,7 @@ public class ContatoDAO {
 		stmt.close();
 		con.close();
 	}
-	
+
 	public List<Contato> recuperarContatos() throws Exception {
 		Connection con = ConnectionFactory.getInstance().getConnection();
 		String sql = "select * from contato";
@@ -33,17 +33,26 @@ public class ContatoDAO {
 		while (rs.next()) {
 			contato = new Contato();
 			contato.setId(rs.getLong("id"));
-	        contato.setNome(rs.getString("nome"));
-	        contato.setEmail(rs.getString("email"));
-	        contato.setEndereco(rs.getString("endereco"));
-	        contato.setDataNascimento(new Date(rs.getDate("dataNascimento").getTime()));
-	        contatos.add(contato);
+			contato.setNome(rs.getString("nome"));
+			contato.setEmail(rs.getString("email"));
+			contato.setEndereco(rs.getString("endereco"));
+			contato.setDataNascimento(new Date(rs.getDate("dataNascimento").getTime()));
+			contatos.add(contato);
 		}
 		stmt.execute();
 		stmt.close();
 		con.close();
-		
+
 		return contatos;
 	}
-	
+
+	public void excluirContato(Long id) throws Exception {
+		Connection con = ConnectionFactory.getInstance().getConnection();
+		PreparedStatement stmt = con.prepareStatement("delete from contato where id=?");
+        stmt.setLong(1, id);
+        stmt.execute();
+        stmt.close();
+		con.close();
+	}
+
 }
