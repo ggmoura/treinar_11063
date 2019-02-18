@@ -6,9 +6,11 @@ import javax.swing.JOptionPane;
 
 import br.com.inter.banco.controle.BancoControle;
 import br.com.inter.banco.modelo.ContaPoupanca;
+import br.com.inter.banco.modelo.core.Conta;
 import br.com.inter.banco.modelo.core.HoraFuncionamenoException;
 import br.com.inter.banco.modelo.core.IConstante;
 import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
+import br.com.inter.banco.util.Storage;
 
 //TODO - Criar schedule para cobrar e creditar as contas
 public class TelaMenu {
@@ -20,7 +22,7 @@ public class TelaMenu {
 		controle = new BancoControle();
 		leitor = new Scanner(System.in);
 	}
-	
+
 	public void iniciarMenu() {
 		System.out.print(recuperarMenu());
 		Integer opcao = leitor.nextInt();
@@ -61,7 +63,7 @@ public class TelaMenu {
 		}
 		leitor.close();
 	}
-	
+
 	private void exibirTaxaRendimento() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("A taxa de rendimento atual é: ").append(ContaPoupanca.getTaxaRendimento());
@@ -136,52 +138,50 @@ public class TelaMenu {
 		System.out.print("Informe o número da Conta: ");
 		Integer numeroConta = leitor.nextInt();
 		leitor.nextLine();
-		switch (tipoConta) {
-		case 1:
-			System.out.print("Informe o limite de crédito da Conta: ");
-			Double limiteCredito = leitor.nextDouble();
-			System.out.print("Informe o valor da taxa de manutenção da Conta: ");
-			Double taxaManutencao = leitor.nextDouble();
-			controle.criarContaCorrente(nomeCliente, numeroConta, cpf, limiteCredito, taxaManutencao);
-			break;
-		case 2:
-			controle.criarContaPoupanca(nomeCliente, numeroConta, cpf);
-			break;
-		case 3:
-			System.out.print("Informe o dia do depósito do salário: ");
-			Integer diaDepositoSalario = leitor.nextInt();
-			controle.criarContaSalario(nomeCliente, numeroConta, cpf, diaDepositoSalario);
-			break;
-		case 4:
-			controle.criarContaInvestimento(nomeCliente, numeroConta, cpf);
-			break;
+//Ver com professor forma mais amigavel de fazer isso
+		// {
+		Storage storage;
+		storage = Storage.getInstance();
+		Conta c = storage.getConta(numeroConta);
+		if ((c.getNumero() == null) || (!c.getNumero().equals(numeroConta))) {
+//}			
+			switch (tipoConta) {
+			case 1:
+				System.out.print("Informe o limite de crédito da Conta: ");
+				Double limiteCredito = leitor.nextDouble();
+				System.out.print("Informe o valor da taxa de manutenção da Conta: ");
+				Double taxaManutencao = leitor.nextDouble();
+				controle.criarContaCorrente(nomeCliente, numeroConta, cpf, limiteCredito, taxaManutencao);
+				break;
+			case 2:
+				controle.criarContaPoupanca(nomeCliente, numeroConta, cpf);
+				break;
+			case 3:
+				System.out.print("Informe o dia do depósito do salário: ");
+				Integer diaDepositoSalario = leitor.nextInt();
+				controle.criarContaSalario(nomeCliente, numeroConta, cpf, diaDepositoSalario);
+				break;
+			case 4:
+				controle.criarContaInvestimento(nomeCliente, numeroConta, cpf);
+				break;
 
-		default:
-			break;
-		}
-		System.out.println(IConstante.Mensagem.CONTA_CRIADA_SUCESSO);
+			default:
+				break;
+			}
+			System.out.println(IConstante.Mensagem.CONTA_CRIADA_SUCESSO);
+		} else
+			System.out.println("Número da conta já existe");
 	}
 
 	private String imprimirMenuConta() {
-		return "Informe:\n\t"
-				+ "1 - Conta Corrente\n\t"
-				+ "2 - Conta Poupança\n\t"
-				+ "3 - Conta Salário\n\t"
-				+ "4 - Conta Investimento\n\t"
-				+ "\n==> ";
+		return "Informe:\n\t" + "1 - Conta Corrente\n\t" + "2 - Conta Poupança\n\t" + "3 - Conta Salário\n\t"
+				+ "4 - Conta Investimento\n\t" + "\n==> ";
 	}
 
 	private String recuperarMenu() {
-		return "Informe:\n\t"
-				+ "1 - Criar Conta\n\t"
-				+ "2 - Consultar Saldo\n\t"
-				+ "3 - Depositar\n\t"
-				+ "4 - Sacar\n\t"
-				+ "5 - Definir taxa rendimento poupança\n\t"
-				+ "6 - Tarifar\n\t"
-				+ "7 - Creditar\n\t"
-				+ "8 - Exibir Taxa de Rendimento\n\t"
-				+ "0 - Sair\n\n==> ";
+		return "Informe:\n\t" + "1 - Criar Conta\n\t" + "2 - Consultar Saldo\n\t" + "3 - Depositar\n\t"
+				+ "4 - Sacar\n\t" + "5 - Definir taxa rendimento poupança\n\t" + "6 - Tarifar\n\t" + "7 - Creditar\n\t"
+				+ "8 - Exibir Taxa de Rendimento\n\t" + "0 - Sair\n\n==> ";
 	}
-	
+
 }

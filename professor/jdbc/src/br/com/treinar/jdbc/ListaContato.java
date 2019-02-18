@@ -8,6 +8,8 @@ public class ListaContato {
 		ContatoDAO dao = new ContatoDAO();
 		List<Contato> contatos = dao.recuperarContatos();
 		contatos.forEach(System.out::println);
+		
+		
 	}
 	
 }
