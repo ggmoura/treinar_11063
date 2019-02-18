@@ -9,7 +9,7 @@ import java.util.Map;
 public class TesteMapMaoi {
 	public static void main(String[] args) {
 
-		List<String> estringue = Arrays.asList("lalalala", "mah oee", "aiai hihi", "roque!", "vai pra la",
+		List<String> estringue = Arrays.asList("Maria Sophia", "lalalala", "mah oee", "aiai hihi", "roque!", "vai pra la",
 				"quem é q eu vo chamá");
 		// System.out.println(strings);
 		Map<Character, List<String>> nomesPessoa = new HashMap<>();
