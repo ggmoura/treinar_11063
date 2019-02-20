@@ -45,4 +45,19 @@ public class ContatoDAO {
 		return contatos;
 	}
 	
+	public void remove(Contato contato) {
+		
+	    try {
+	    	Connection con = ConnectionFactory.getInstance().getConnection();
+	    	String sql = "delete from contato where id=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+	        
+	        stmt.setLong(1, 1);
+	        stmt.execute();
+	        stmt.close();
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
 }

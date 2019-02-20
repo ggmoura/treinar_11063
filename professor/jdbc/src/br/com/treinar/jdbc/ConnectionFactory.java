@@ -22,7 +22,7 @@ public class ConnectionFactory {
 	
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/treinar", "root", "");
+			return DriverManager.getConnection("jdbc:mysql://localhost/treinar", "mbreno", "123456");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
