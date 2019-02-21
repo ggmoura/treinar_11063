@@ -11,7 +11,7 @@ public class JPALoadEntity {
 	    entityManager.getTransaction().begin();
 	    
 	    
-	    Employee e = entityManager.find(Employee.class, 1);
+	    Employee e = entityManager.find(Employee.class, 3);
 	    
 	    System.out.println(e);
 	    
