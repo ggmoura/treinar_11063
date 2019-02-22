@@ -1,4 +1,5 @@
 
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,9 +11,14 @@
 <body>
 
 	<ul>
-		<li>gleidson</li>
-		<li>maria sophia</li>
-		<li>larissa</li>
+		<%
+			List<String> nomes = (List<String>) request.getAttribute("parabens");
+			for(String nome: nomes) {
+				out.print("<li>");
+				out.print(nome);
+				out.print("</li>");
+			}
+		%>
 	</ul>
 	
 	<h1>

@@ -2,7 +2,9 @@ package br.com.treinar.web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,10 +27,14 @@ public class PrimeiroServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("nomeDaPessoa");
-		String idade = request.getParameter("idadeDaPessoa");
-		String msg = "Olá ".concat(nome).concat(" Parabéns pelos seus ").concat(idade).concat(" anos.");
-		request.setAttribute("parabens", msg);
+		
+		List<String> nomes = new ArrayList<String>();
+		for (int i=0;i<6;i++){
+			nomes.add(request.getParameter("nomeDaPessoa"+i));			
+		}
+		
+			
+		request.setAttribute("parabens", nomes);
 		request.getRequestDispatcher("/cadastro.jsp").forward(request, response);
 		
 	}
