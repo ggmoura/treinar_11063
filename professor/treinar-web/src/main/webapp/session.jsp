@@ -27,5 +27,8 @@
 		}
 	%>
 	
+	<br /><span>SESSAO: ${contador}</span><br />
+	<br /><span>APLICACAO: ${contadorTotal}</span>
+	
 </body>
 </html>

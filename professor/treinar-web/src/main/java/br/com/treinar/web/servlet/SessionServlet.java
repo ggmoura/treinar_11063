@@ -30,7 +30,14 @@ public class SessionServlet extends HttpServlet  {
 			req.getSession().setAttribute("listaNomes", listaNomes);				
 			
 		}
-		//req.getSession().setAttribute("", arg1);
+		
+		Object cont = req.getSession().getAttribute("contador");
+		Integer contador = cont != null ? (Integer) cont : 0;
+		req.getSession().setAttribute("contador", ++contador);
+		
+		Object contTotal = req.getServletContext().getAttribute("contadorTotal");
+		Integer contadorTotal = contTotal != null ? (Integer) contTotal : 0;
+		req.getServletContext().setAttribute("contadorTotal", ++contadorTotal);
 		
 		req.getRequestDispatcher("/session.jsp").forward(req, resp);
 	}
