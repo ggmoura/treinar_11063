@@ -26,6 +26,11 @@
 			out.print("Lista vazia");
 		}
 	%>
+	<br>
+	<span>${contador}</span><br>
+	
+	<span>${contadorTotal}</span>
+	<br>
 	
 </body>
 </html>
