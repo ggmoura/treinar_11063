@@ -15,6 +15,8 @@
 		Nome: <input name="nome"><br />
 		<input type="submit" value="Guardar Nome">
 		
+		
+		
 	
 	</form>
 	
@@ -25,7 +27,12 @@
 		} else {
 			out.print("Lista vazia");
 		}
+//Eu fiz		
+// 		List<Integer> contarVisitas = (List<Integer>) request.getSession().getAttribute("contarVisitas");
+// 		out.println("Visitas no site:" + contarVisitas.toString());
+//Professor Fez
 	%>
+		<span>${contador}</span>
 	
 </body>
 </html>

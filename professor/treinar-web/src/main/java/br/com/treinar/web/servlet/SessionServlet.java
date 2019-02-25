@@ -30,7 +30,22 @@ public class SessionServlet extends HttpServlet  {
 			req.getSession().setAttribute("listaNomes", listaNomes);				
 			
 		}
-		//req.getSession().setAttribute("", arg1);
+//Eu fiz		
+//		if (req.getSession().getAttribute("contarVisitas") == null) {
+//			req.getSession().setAttribute("contarVisitas", new ArrayList<Integer>());
+//			List<Integer> cont = (List<Integer>) req.getSession().getAttribute("contarVisitas");
+//			cont.add(1);
+//		};
+//		List<Integer> cont = (List<Integer>) req.getSession().getAttribute("contarVisitas");
+//		Integer i = cont.get(0);
+//		i++;
+//		cont.set(0, i);
+//		req.getSession().setAttribute("contarVisitas", cont);
+//Professor fez
+		Object cont = req.getSession().getAttribute("contador");
+		Integer contador = cont != null ? (Integer) cont : 0;
+		req.getSession().setAttribute("contador", ++contador);
+		
 		
 		req.getRequestDispatcher("/session.jsp").forward(req, resp);
 	}
