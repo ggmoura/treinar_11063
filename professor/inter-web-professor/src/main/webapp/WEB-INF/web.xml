@@ -8,6 +8,7 @@
   	<location>/erro404.jsp</location>
   </error-page>
   
+  
   <error-page>
   	<exception-type>java.lang.RuntimeException</exception-type>
   	<location>/erro404.jsp</location>
