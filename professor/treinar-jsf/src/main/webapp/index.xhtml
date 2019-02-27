@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Hello World</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+
+			<h:outputLabel>Nome</h:outputLabel>
+			<h:inputText readonly="true" value="#{contaController.conta.cliente}"></h:inputText>
+			<h:outputLabel>Saldo</h:outputLabel>
+			<h:inputText requiredMessage="O nome do cliente é obrigatório"
+				required="true" label="Saldo do cliente no banco"
+				value="#{contaController.conta.saldo}"></h:inputText>
+
+
+			<h:selectOneRadio layout="pageDirection"
+				value="#{contaController.dia}">
+				<f:selectItems value="#{treinar.dias}" var="d"
+					itemLabel="#{d.descricao}" itemValue="#{d}" />
+			</h:selectOneRadio>
+
+			<h:selectOneMenu layout="pageDirection"
+				value="#{contaController.dia}" label="Dia da semana" required="true">
+				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+				<f:selectItems value="#{treinar.dias}" var="d"
+					itemLabel="#{d.descricao}" itemValue="#{d}" />
+			</h:selectOneMenu>
+
+			<h:selectManyCheckbox value="#{contaController.selecionados}">
+				<f:selectItems value="#{contaController.blahs}"/>
+			</h:selectManyCheckbox>
+			
+			<h:inputText value="#{contaController.telefone}" >
+				<f:converter converterId="br.com.treinar.comverter.TelefoneConverter"/>
+				<f:validator validatorId="br.com.treinar.validator.TelefoneValidator"/>
+			</h:inputText>
+			<h:commandButton action="#{contaController.salvar()}" value="Enviar " />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
