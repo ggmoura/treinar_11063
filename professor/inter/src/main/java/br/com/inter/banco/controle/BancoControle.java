@@ -23,6 +23,12 @@ import br.com.inter.banco.modelo.core.SaldoInsuficienteException;
 import br.com.inter.banco.util.Constante;
 import br.com.inter.banco.util.Storage;
 
+/**
+ * Classe de controle... blah
+ * 
+ * @author Treinar
+ *
+ */
 public class BancoControle {
 
 	private Storage storage;
